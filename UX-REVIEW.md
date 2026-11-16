@@ -27,3 +27,11 @@
 ## Giới hạn nội dung
 
 Website chưa có ảnh hoạt động thực tế của Trường Tiểu học Gia Lâm. Album cuối là tranh minh họa, có chú thích. Phim phụ thuộc đường truyền và địa chỉ của đơn vị cung cấp; luôn có liên kết mở trang nguồn. Đây chưa phải kết quả thử nghiệm trực tiếp với học sinh hoặc giáo viên tại trường.
+
+## Chỉnh sửa tiếp theo theo góp ý
+
+- Bỏ các đoạn giải thích dài về AI, phục dựng và cách cắt ảnh khỏi giao diện đọc. Chỉ giữ chú thích ảnh ngắn; nguồn và giấy phép ảnh tập trung ở mục cuối trang.
+- Bỏ khối nguồn ở cuối hộp câu chuyện, hộp ảnh và các liên kết nguồn lặp lại dưới từng chương. Liên kết mở phim gốc vẫn có để dùng khi trình phát không tải được.
+- Viết lại đủ 7 câu chuyện, mỗi chuyện 5 đoạn, khoảng 250–280 từ theo cách đếm khoảng trắng; bổ sung diễn biến cụ thể và đối chiếu nguồn.
+- Thay tham chiếu Trường Tiểu học Khương Mai bằng nội dung dành cho Trường Tiểu học Gia Lâm; không dùng ảnh hoặc hoạt động của trường khác để gắn tên Gia Lâm.
+- Thay toàn bộ hoa sen đang dùng trong giao diện và favicon bằng hai ảnh PNG tạo theo ảnh tham chiếu.

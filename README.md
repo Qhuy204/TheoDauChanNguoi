@@ -23,7 +23,7 @@ Lệnh kiểm tra đối chiếu 7 giai đoạn, liên kết dữ liệu, ảnh,
 
 Sửa `dist/data/content.json`, giữ nguyên cấu trúc JSON và mã định danh đang được tham chiếu.
 
-- `site`: tên website, dòng phụ, đơn vị, lời giới thiệu và ảnh đầu trang/hoạt động.
+- `site`: tên website, dòng phụ, đơn vị, tên trường, lời giới thiệu và ảnh đầu trang/hoạt động.
 - `stages`: 7 giai đoạn, mốc sự kiện, bài học, giải thích từ khó; thứ tự trong danh sách là thứ tự hiển thị.
 - `images`: đường dẫn ảnh, mô tả cho trình đọc màn hình, chú thích, nguồn và giấy phép.
 - `stories`: các đoạn kể chuyện, câu hỏi liên hệ, mã giai đoạn và nguồn.
@@ -39,11 +39,13 @@ Nội dung không cần tài khoản quản trị, không lưu thông tin học 
 
 Nguồn lịch sử chính: *Hồ Chí Minh – Tiểu sử*, Bảo tàng Hồ Chí Minh, NXB Chính trị Quốc gia, 2008, bản điện tử trên hệ thống Tư liệu – Văn kiện Đảng. Nội dung được kể lại bằng lời ngắn gọn; không phải trích nguyên văn.
 
-Ảnh thật được lưu cục bộ và có thông tin tác giả/giấy phép trong dữ liệu và mục nguồn cuối trang. Ảnh Pác Bó là ảnh hiện đại năm 2016. Ảnh chân dung có tên tệp nguồn ghi 1946 nhưng hồ sơ mô tả khoảng năm 1947; website ghi theo phần mô tả và nêu sự khác biệt trong nguồn ảnh. Các ảnh CC BY-SA giữ giấy phép tương ứng.
+Ảnh thật được lưu cục bộ. Thông tin nguồn, tác giả và giấy phép được gom trong mục Nguồn tham khảo cuối trang; hộp câu chuyện chỉ hiển thị ảnh, chú thích ngắn, nội dung và câu hỏi. Ảnh Pác Bó chụp năm 2016. Ảnh chân dung có tên tệp nguồn ghi 1946 nhưng hồ sơ mô tả khoảng năm 1947; website ghi theo phần mô tả. Các ảnh CC BY-SA giữ giấy phép tương ứng.
 
 Phim được phát từ địa chỉ do hochiminh.vn công bố, không sao chép phim vào dự án. Video chỉ tải khi người xem yêu cầu, có liên kết mở trang nguồn khi không phát được. Website sử dụng font Google Fonts; nếu không kết nối được sẽ dùng font dự phòng trên máy.
 
 Năm tranh minh họa AI nằm trong `dist/assets/`: `hero.webp`, `harbor.webp`, `village.webp`, `learning.webp`, `activities.webp`. Đây là minh họa, không phải chứng cứ lịch sử hoặc ảnh hoạt động của trường. Xem `DESIGN.md` để biết hướng tạo tranh và tham chiếu bố cục.
+
+Biểu tượng hoa sen đã thay bằng ảnh PNG nền trong suốt: `lotus-red.png` dùng ở đầu/cuối trang và favicon; `lotus-gold.png` dùng ở các điểm chia phần. Phần giới thiệu hoạt động mang tên Trường Tiểu học Gia Lâm, không liên kết sang trường khác.
 
 ## Cấu trúc và triển khai
 

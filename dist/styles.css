@@ -22,6 +22,8 @@ dialog{border:0;border-radius:16px;background:var(--ivory);color:var(--ink);padd
 html{scroll-behavior:auto}
 .chapter,#tu-lieu{scroll-margin-top:0}
 .chapter:focus,#dialog-title:focus{outline:none}
+img.brand-mark,img.section-lotus,.lotus-divider img{object-fit:contain}.footer-brand img.brand-mark{filter:brightness(0) invert(1)}.lotus-divider img{width:63px;height:51px;flex-shrink:0}
+.chapter-bottom{justify-content:flex-end}div.activity-example:hover strong{text-decoration:none}.activity-example strong #activity-school-name{font:inherit;color:inherit;margin:0}
 .chapter-intro,.hero-description,.section-heading p:last-child,.activities-heading>p:last-child,.story-paragraph{font-size:18px}
 .event p,.lesson p{font-size:16px}
 .stage-link span{font-size:13px}.chapter-figure figcaption,.media-card small{font-size:12px}.media-type{font-size:14px}.activity-action h3{font-size:17px}.activity-detail{font-size:15px}.activity-example strong{font-size:15px}.activity-example span span{font-size:13px}.chapter-topline{font-size:12px}.chapter-place{font-size:11px}.hero-art figcaption{font-size:12px}.activity-album figcaption{font-size:13px}.activity-album figcaption span{font-size:12px}.stage-step{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;background:transparent;border:1px solid #c9bfac;border-radius:7px;color:var(--red)}.stage-step.previous .icon{transform:rotate(180deg)}.stage-step:disabled{opacity:.3}.stage-step:not(:disabled):hover{background:#f1e7db}.featured-copy h3{font-size:30px;line-height:1.5}
@@ -39,4 +41,5 @@ html{scroll-behavior:auto}
 @media(max-width:700px){.hero-dates{font-size:13px}.overview-stop small{font-size:10px}.chapter h2{font-size:29px}.chapter-intro{font-size:18px}.mobile-stage-picker select{font-size:12px}.media-card h3{font-size:18px}.media-card small{font-size:11px}.media-type{font-size:12px}.chapter-place{font-size:10px}.activity-detail{padding-left:0}.activity-example strong{font-size:14px}.activity-example span span{font-size:12px}.hero .eyebrow{font-size:11px}.activities-heading h2{font-size:31px}.chapter-topline{font-size:11px}.featured-copy h3{font-size:26px}.footer-brand .brand-unit{font-size:9px;max-width:250px}.hero-description{font-size:17px}.activity-album figcaption{font-size:12px}}
 @media(max-width:940px){.chapter{scroll-margin-top:64px}}
 @media(max-width:700px){.header-inner .brand-unit{max-width:200px}}
+@media(max-width:700px){.lotus-divider img{width:48px;height:39px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}

@@ -5,7 +5,8 @@
     "unit": "Chi bộ 2 – Đảng bộ Trường Tiểu học Gia Lâm",
     "intro": "Bác đã sống, học tập và hoạt động ở những đâu? Mời các em tìm hiểu qua các mốc thời gian, ảnh và chuyện kể dưới đây.",
     "heroImage": "assets/hero.webp",
-    "activityImage": "assets/activities.webp"
+    "activityImage": "assets/activities.webp",
+    "schoolName": "Trường Tiểu học Gia Lâm"
   },
   "sources": {
     "biography": {
@@ -24,9 +25,29 @@
       "name": "Ban Quản lý Lăng Chủ tịch Hồ Chí Minh · Bức tranh thêu và tình bạn thủy chung",
       "url": "https://btllang.bqp.vn/tin-tuc/tin-tong-hop/1656-b-c-tranh-theu-va-tinh-b-n-th-y-chung.html"
     },
-    "smallActions": {
-      "name": "Trường Tiểu học Khương Mai · Thi đua làm theo lời Bác dạy",
-      "url": "https://thkhuongmai.hanoi.edu.vn/ke-hoach-nho/thi-dua-lam-theo-loi-bac-day/ctfull/20556/153570"
+    "hongKong": {
+      "name": "Vụ án Nguyễn Ái Quốc ở Hồng Kông 1931–1933 · Bảo tàng Hồ Chí Minh / NXB Chính trị Quốc gia",
+      "url": "https://tulieuvankien.dangcongsan.vn/c-mac-angghen-lenin-ho-chi-minh/ho-chi-minh/nghien-cuu-hoc-tap-tu-tuong/hop-bao-gioi-thieu-cuon-sach-vu-an-nguyen-ai-quoc-o-hong-kong-2326"
+    },
+    "pacBo": {
+      "name": "Biên niên tiểu sử · Bảo tàng Hồ Chí Minh",
+      "url": "https://baotanghochiminh.vn/bien-nien-tieu-su/p-853.htm"
+    },
+    "literacy": {
+      "name": "Bảo tàng Lịch sử Quốc gia · Cuốn sổ và những dòng cảm tưởng về Bình dân học vụ",
+      "url": "https://baotanglichsu.vn/vi/Articles/2001/66628/cuon-so-va-nhung-dong-cam-tuong-ve-binh-dan-hoc-vu.html"
+    },
+    "literacyCollection": {
+      "name": "Bảo tàng Lịch sử Quốc gia · Trưng bày Bình dân học vụ",
+      "url": "https://baotanglichsu.vn/vi/Articles/3096/76024/binh-dan-hoc-vu-thap-sang-tuong-lai.html"
+    },
+    "treePlanting": {
+      "name": "Ban Quản lý Lăng Chủ tịch Hồ Chí Minh · Bác Hồ với Tết trồng cây",
+      "url": "https://btllang.bqp.vn/tin-tuc/tin-tong-hop/14492-bac-ho-voi-tet-trong-cay.html"
+    },
+    "treeArticles": {
+      "name": "Các bài viết của Chủ tịch Hồ Chí Minh về Tết trồng cây",
+      "url": "https://btllang.mod.gov.vn/tin-tuc/tin-tong-hop/964-m-t-s-bai-vi-t-bai-noi-va-hinh-nh-c-a-ch-t-ch-h-chi-minh-v-t-t-tr-ng-cay.html"
     }
   },
   "stages": [
@@ -284,7 +305,7 @@
       "src": "assets/village.webp",
       "alt": "Tranh minh họa mái nhà tranh, hàng tre và ao sen ở một miền quê Nghệ An",
       "caption": "Khung cảnh làng quê Nghệ An · Tranh minh họa",
-      "credit": "Minh họa tạo bằng AI cho website; không phải ảnh tư liệu hay bản phục dựng di tích.",
+      "credit": "Tranh minh họa.",
       "kind": "illustration"
     },
     "learning": {
@@ -292,7 +313,7 @@
       "src": "assets/learning.webp",
       "alt": "Tranh minh họa bàn gỗ giản dị với sách, bút và chiếc túi bên khung cửa có bóng lá",
       "caption": "Sách và đồ dùng học tập · Tranh minh họa",
-      "credit": "Minh họa biểu tượng tạo bằng AI cho website; không phải bàn làm việc hay đồ vật lịch sử đã được xác minh của Bác.",
+      "credit": "Tranh minh họa.",
       "kind": "illustration"
     },
     "harbor": {
@@ -300,7 +321,7 @@
       "src": "assets/harbor.webp",
       "alt": "Tranh minh họa người thanh niên nhìn về bến cảng với tàu hơi nước và tòa nhà Nhà Rồng",
       "caption": "Bến Nhà Rồng · Tranh minh họa",
-      "credit": "Minh họa tạo bằng AI cho website; không phải hình ảnh ghi lại sự kiện năm 1911.",
+      "credit": "Tranh minh họa.",
       "kind": "illustration"
     },
     "tours": {
@@ -308,7 +329,7 @@
       "src": "assets/tours-1920.jpg",
       "alt": "Ảnh đen trắng Nguyễn Ái Quốc phát biểu tại Đại hội Tours ở Pháp năm 1920",
       "caption": "Nguyễn Ái Quốc tại Đại hội Tours, Pháp, tháng 12.1920",
-      "credit": "Không rõ tác giả · Wikimedia Commons / english.hochiminh.vn · Phạm vi công cộng theo hồ sơ nguồn. Ảnh gốc không chỉnh sửa; giao diện có thể hiển thị cắt theo khung.",
+      "credit": "Wikimedia Commons / english.hochiminh.vn · Phạm vi công cộng.",
       "url": "https://commons.wikimedia.org/wiki/File:Comrade_Nguyen_Ai_Quoc_at_the_national_congress_of_the_Socialist_Party_of_France_in_the_city_of_Tous,_France_in_December_1920.jpg",
       "kind": "archive"
     },
@@ -317,7 +338,7 @@
       "src": "assets/pac-bo.jpg",
       "alt": "Ảnh dòng suối xanh ngọc giữa rừng cây tại khu di tích Pác Bó ở Cao Bằng",
       "caption": "Suối Lê-nin, Pác Bó · Ảnh chụp năm 2016",
-      "credit": "[Tycho] / Shansov.net · Wikimedia Commons · CC BY-SA 3.0. Bản ảnh tối ưu kích thước, giữ nguyên nội dung; giao diện có thể cắt theo khung.",
+      "credit": "[Tycho] / Shansov.net · CC BY-SA 3.0 · Ảnh thu nhỏ.",
       "url": "https://commons.wikimedia.org/wiki/File:P%C3%A1c_B%C3%B3.jpg",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "kind": "photo"
@@ -326,8 +347,8 @@
       "title": "Chân dung Chủ tịch Hồ Chí Minh",
       "src": "assets/portrait-1947.jpg",
       "alt": "Ảnh chân dung đen trắng Chủ tịch Hồ Chí Minh",
-      "caption": "Chủ tịch Hồ Chí Minh · Khoảng năm 1947, theo hồ sơ nguồn",
-      "credit": "Không rõ tác giả · Wikimedia Commons · Phạm vi công cộng theo hồ sơ nguồn. Tên tệp nguồn ghi 1946, phần mô tả ghi khoảng 1947. Ảnh gốc không chỉnh sửa; giao diện có thể cắt theo khung.",
+      "caption": "Chủ tịch Hồ Chí Minh · Khoảng năm 1947",
+      "credit": "Wikimedia Commons · Phạm vi công cộng.",
       "url": "https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_-_1946_Portrait.jpg",
       "kind": "archive"
     },
@@ -336,7 +357,7 @@
       "src": "assets/children-1957.jpg",
       "alt": "Chủ tịch Hồ Chí Minh cùng các thiếu nhi tại một trại hè gần Berlin năm 1957",
       "caption": "Bác thăm thiếu nhi gần Berlin, ngày 28.07.1957",
-      "credit": "Bundesarchiv, Bild 183-48550-0036 / Sturm, Horst · CC BY-SA 3.0 DE. Ảnh gốc không chỉnh sửa; giao diện có thể cắt theo khung.",
+      "credit": "Bundesarchiv, Bild 183-48550-0036 / Sturm, Horst · CC BY-SA 3.0 DE.",
       "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-48550-0036,_Besuch_Ho_Chi_Minhs_bei_Pionieren,_bei_Berlin.jpg",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.vi",
       "kind": "archive"
@@ -349,12 +370,16 @@
       "title": "Thầy giáo Nguyễn Tất Thành",
       "image": "village",
       "paragraphs": [
-        "Năm 1910, Nguyễn Tất Thành đến Phan Thiết và dạy học tại Trường Dục Thanh. Khi ấy, Người còn rất trẻ. Ngoài dạy chữ, Người còn quan tâm đến việc rèn luyện sức khỏe cho học trò.",
-        "Sau một thời gian dạy học, Nguyễn Tất Thành vào Sài Gòn. Năm 1911, Người rời Bến Nhà Rồng để ra nước ngoài tìm đường cứu nước."
+        "Năm 1910, trên đường đi vào miền Nam, Nguyễn Tất Thành dừng chân tại Phan Thiết. Người được giới thiệu đến dạy học ở Trường Dục Thanh. Khi ấy, thầy Thành mới khoảng hai mươi tuổi, là người trẻ trong số các thầy giáo của trường.",
+        "Dục Thanh là một ngôi trường do những người yêu nước ở Phan Thiết lập ra. Ở đây, học trò được học chữ Quốc ngữ cùng những kiến thức mới. Thầy Thành tham gia dạy chữ Quốc ngữ, chữ Hán và phụ trách việc tập thể dục cho học sinh.",
+        "Việc học không chỉ diễn ra trong lớp. Thầy quan tâm đến sách để học sinh đọc, hướng dẫn các hoạt động ngoài giờ và rèn luyện sức khỏe. Những việc đó cho thấy một người thầy vừa lo cho kiến thức, vừa để ý đến nếp sinh hoạt của học trò.",
+        "Thời gian dạy học tại Dục Thanh không dài, từ năm 1910 đến đầu năm 1911. Sau đó, Nguyễn Tất Thành rời Phan Thiết, tiếp tục vào Sài Gòn. Người tìm hiểu tình hình ở một thành phố có bến cảng lớn và chuẩn bị cho chuyến đi ra nước ngoài.",
+        "Ngày nay, di tích Dục Thanh ở Phan Thiết còn lưu giữ lớp học và nhiều kỷ vật gắn với thời gian Bác dạy học. Trước khi biết đến Bác với vai trò lãnh đạo đất nước, các em có thể nhớ rằng Bác cũng từng đứng lớp, dạy chữ và hướng dẫn học trò tập thể dục."
       ],
       "question": "Em biết những gì về Trường Dục Thanh?",
       "sourceIds": [
-        "biography"
+        "biography",
+        "ducThanh"
       ]
     },
     {
@@ -363,8 +388,11 @@
       "title": "Làm phụ bếp trên tàu",
       "image": "harbor",
       "paragraphs": [
-        "Nguyễn Tất Thành rời Sài Gòn ngày 5 tháng 6 năm 1911 trên tàu Amiral Latouche-Tréville. Người lấy tên Văn Ba và làm phụ bếp trên tàu.",
-        "Ở nước ngoài, Người làm nhiều nghề để kiếm sống. Trong những năm ấy, Người học ngoại ngữ, đọc sách báo và tìm hiểu cuộc sống của người dân. Người muốn tìm cách giúp đồng bào mình thoát khỏi cảnh mất nước."
+        "Ngày 5 tháng 6 năm 1911, con tàu Amiral Latouche-Tréville rời cảng Sài Gòn. Trên tàu có người thanh niên Nguyễn Tất Thành, lúc ấy lấy tên Văn Ba. Người nhận làm phụ bếp để có thể đi ra nước ngoài tìm hiểu và tìm cách cứu nước.",
+        "Đây là công việc phục vụ trên tàu, gắn với việc chuẩn bị các bữa ăn cho nhiều người. Nguyễn Tất Thành phải lao động để kiếm sống như những người làm công khác. Công việc phụ bếp giúp Người có chỗ làm để lên tàu và bắt đầu chuyến đi.",
+        "Trong những năm tiếp theo, Người đến nhiều nước ở châu Âu, châu Phi, châu Mỹ và châu Á. Người làm nhiều nghề, gặp gỡ những người lao động và tìm hiểu cuộc sống ở các nơi đã đi qua. Qua đó, Người hiểu thêm cảnh nghèo khó của nhân dân thuộc địa và những người làm thuê.",
+        "Đi đôi với lao động là học tập. Nguyễn Tất Thành học ngoại ngữ, đọc sách báo và tìm hiểu các phong trào đấu tranh. Khi hoạt động ở Pháp, Người tham gia những tổ chức và cuộc trao đổi về quyền tự do, bình đẳng của các dân tộc.",
+        "Năm 1919, bản Yêu sách của nhân dân An Nam mang tên Nguyễn Ái Quốc được gửi tới Hội nghị Versailles. Năm 1920, Người tiếp cận luận cương của Lênin và tìm thấy con đường giải phóng dân tộc. Từ công việc phụ bếp năm 1911 đến những hoạt động ấy là nhiều năm vừa làm việc, vừa học và tìm đường đi cho đất nước."
       ],
       "question": "Bác đã làm gì để vừa kiếm sống, vừa học tập?",
       "sourceIds": [
@@ -378,8 +406,11 @@
       "title": "Những lớp học ở Quảng Châu",
       "image": "tours",
       "paragraphs": [
-        "Tại Quảng Châu, Trung Quốc, Nguyễn Ái Quốc tổ chức các lớp đào tạo thanh niên Việt Nam. Người giảng về cách mạng và việc tổ chức lực lượng để giành độc lập.",
-        "Các bài giảng được tập hợp trong cuốn Đường Kách mệnh, xuất bản năm 1927. Những thanh niên được đào tạo sau đó trở về nước, truyền đạt điều đã học và tham gia hoạt động cách mạng."
+        "Cuối năm 1924, Nguyễn Ái Quốc đến Quảng Châu, Trung Quốc. Đây là nơi Người gặp gỡ những thanh niên Việt Nam đang tìm cách hoạt động cứu nước. Muốn họ có thể trở về tổ chức công việc trong nước, Người bắt đầu chuẩn bị các lớp đào tạo.",
+        "Tháng 6 năm 1925, Hội Việt Nam Cách mạng Thanh niên được thành lập. Cũng trong năm ấy, báo Thanh niên ra đời. Các lớp học và tờ báo giúp đưa những kiến thức về cách mạng đến với thanh niên Việt Nam.",
+        "Trong lớp, Nguyễn Ái Quốc giảng về tình hình thế giới, cách mạng và công việc của người hoạt động cách mạng. Người chú ý đến cả việc học kiến thức lẫn cách tổ chức, vận động và làm việc cùng mọi người. Học viên được chuẩn bị để trở về nước hoạt động.",
+        "Những bài giảng từ các lớp huấn luyện trong những năm 1925–1927 được tập hợp thành cuốn Đường Kách mệnh. Sách xuất bản năm 1927. Tên sách giữ cách viết thời bấy giờ; chữ “Kách mệnh” trong tên gọi có nghĩa là “cách mạng”.",
+        "Sau khi học, nhiều thanh niên trở về Việt Nam, xây dựng cơ sở và truyền đạt điều đã học. Những lớp học ở Quảng Châu vì thế có liên hệ với công việc diễn ra tại quê nhà. Chúng góp phần chuẩn bị đội ngũ cán bộ cho sự ra đời của Đảng Cộng sản Việt Nam năm 1930."
       ],
       "question": "Những người dự lớp học đã làm gì khi trở về nước?",
       "sourceIds": [
@@ -392,12 +423,17 @@
       "title": "Những năm ở Hồng Kông",
       "image": "learning",
       "paragraphs": [
-        "Đầu năm 1930, Nguyễn Ái Quốc đến Hồng Kông và chủ trì hội nghị hợp nhất các tổ chức cộng sản, thành lập Đảng Cộng sản Việt Nam.",
-        "Năm 1931, Người bị chính quyền Anh tại Hồng Kông bắt giam. Luật sư Frank Loseby cùng gia đình và bạn bè đã giúp đỡ, bảo vệ Người. Sau khi được trả tự do, Người rời Hồng Kông và tiếp tục hoạt động."
+        "Đầu năm 1930, Nguyễn Ái Quốc chủ trì hội nghị hợp nhất các tổ chức cộng sản tại Hồng Kông. Đảng Cộng sản Việt Nam ra đời. Sau hội nghị, Người tiếp tục hoạt động trong điều kiện phải giữ bí mật để tránh sự theo dõi của chính quyền thực dân.",
+        "Ngày 6 tháng 6 năm 1931, Nguyễn Ái Quốc bị bắt tại Hồng Kông. Lúc đó, Người mang tên Tống Văn Sơ. Việc bị giam giữ đặt Người trước nguy cơ bị đưa về Đông Dương, nơi thực dân Pháp đang truy tìm Người.",
+        "Luật sư người Anh Francis Henry Loseby, thường gọi là Lôdơbi, cùng những người cộng sự đã đứng ra bảo vệ Người. Vụ việc phải trải qua nhiều phiên xét xử. Sự giúp đỡ của luật sư, gia đình ông và bạn bè có vai trò quan trọng trong quá trình đấu tranh để Người được tự do.",
+        "Ngay cả khi được trả tự do, việc rời Hồng Kông vẫn gặp trở ngại. Tháng 1 năm 1933, Nguyễn Ái Quốc bị buộc quay lại Hồng Kông sau khi tới Singapore. Luật sư Lôdơbi tiếp tục can thiệp và giúp sắp xếp việc đi lại. Ngày 22 tháng 1 năm 1933, Người bí mật rời Hồng Kông đi Hạ Môn.",
+        "Sau khi rời Hồng Kông, Nguyễn Ái Quốc tiếp tục học tập và nghiên cứu ở Liên Xô, rồi trở lại Trung Quốc hoạt động. Đầu năm 1941, Người trở về Việt Nam. Bác và gia đình luật sư Lôdơbi vẫn giữ liên hệ trong những năm sau. Năm 1960, Bác đón gia đình luật sư sang thăm Việt Nam."
       ],
       "question": "Ai đã giúp đỡ Nguyễn Ái Quốc khi Người bị bắt?",
       "sourceIds": [
-        "biography"
+        "biography",
+        "hongKong",
+        "loseby"
       ]
     },
     {
@@ -406,13 +442,16 @@
       "title": "Bác trở về Pác Bó",
       "image": "pacbo",
       "paragraphs": [
-        "Ngày 28 tháng 1 năm 1941, Nguyễn Ái Quốc trở về nước qua biên giới Cao Bằng. Gần ba mươi năm kể từ ngày rời Bến Nhà Rồng, Người mới trở lại Tổ quốc.",
-        "Tại Pác Bó, Người sống và làm việc trong điều kiện thiếu thốn, cùng Trung ương Đảng lãnh đạo cách mạng. Tháng 5 năm 1941, Người chủ trì Hội nghị Trung ương 8. Mặt trận Việt Minh được thành lập để đoàn kết nhân dân đấu tranh giành độc lập."
+        "Ngày 28 tháng 1 năm 1941, đúng mùng hai Tết Tân Tỵ, Nguyễn Ái Quốc vượt biên giới ở Cao Bằng để trở về nước. Từ ngày rời Bến Nhà Rồng đến lúc đó đã gần ba mươi năm. Người trở về để cùng Trung ương Đảng trực tiếp lãnh đạo cuộc đấu tranh giành độc lập.",
+        "Ban đầu, Người ở tại nhà một số gia đình cơ sở cách mạng. Từ ngày 8 tháng 2 năm 1941, Người chuyển lên hang Cốc Bó, thuộc Pác Bó, để bảo đảm bí mật. Nơi ở và làm việc giữa núi rừng rất đơn sơ, việc ăn ở và đi lại còn nhiều thiếu thốn.",
+        "Tại đây, Nguyễn Ái Quốc đọc, dịch và viết tài liệu phục vụ việc huấn luyện cán bộ. Có lúc, Người dùng tảng đá bên bờ suối làm bàn viết. Những công việc hằng ngày ấy gắn với việc xây dựng lực lượng và chuẩn bị cho cách mạng trong nước.",
+        "Tháng 5 năm 1941, Người chủ trì Hội nghị Trung ương 8 tại Pác Bó. Hội nghị xác định nhiệm vụ giải phóng dân tộc là cấp bách. Mặt trận Việt Minh được thành lập để tập hợp, đoàn kết các tầng lớp nhân dân cùng đấu tranh giành độc lập.",
+        "Trong những năm sau đó, phong trào cách mạng tiếp tục phát triển. Đến năm 1945, Bác về Tân Trào, Tuyên Quang, cùng Trung ương Đảng lãnh đạo cuộc Tổng khởi nghĩa. Từ Pác Bó đến Tân Trào là một chặng đường chuẩn bị trước khi Cách mạng Tháng Tám giành thắng lợi."
       ],
       "question": "Em hãy tìm Cao Bằng trên bản đồ Việt Nam.",
       "sourceIds": [
         "biography",
-        "departure"
+        "pacBo"
       ]
     },
     {
@@ -421,11 +460,16 @@
       "title": "Những lớp học Bình dân học vụ",
       "image": "portrait",
       "paragraphs": [
-        "Sau Cách mạng Tháng Tám, phần lớn người dân nước ta chưa biết đọc, biết viết. Bác và Chính phủ phát động phong trào Bình dân học vụ để dạy chữ cho nhân dân.",
-        "Các lớp học được mở ở nhiều nơi. Người biết chữ dạy người chưa biết chữ; nhiều người đi học sau giờ làm việc. Phong trào giúp người dân có thêm cơ hội học tập trong những năm đầu đất nước độc lập."
+        "Khi nước Việt Nam Dân chủ Cộng hòa ra đời năm 1945, rất nhiều người dân chưa biết đọc, biết viết. Đất nước vừa phải lo chống đói, vừa phải bảo vệ nền độc lập. Việc dạy chữ được Bác và Chính phủ đặt vào những công việc cần làm ngay.",
+        "Ngày 8 tháng 9 năm 1945, Chủ tịch Hồ Chí Minh ký sắc lệnh thành lập Nha Bình dân học vụ. Cơ quan này phụ trách tổ chức việc học chữ cho nhân dân. Các lớp Bình dân học vụ được mở để người trước đây chưa có điều kiện đến trường có thể học đọc và học viết chữ Quốc ngữ.",
+        "Người dạy không chỉ là giáo viên ở các trường. Những người đã biết chữ cũng tham gia giúp người chưa biết chữ. Học viên có cả người lớn tuổi, phụ nữ và người lao động; nhiều người vừa làm việc, vừa tranh thủ thời gian đến lớp.",
+        "Điều kiện học tập còn thiếu thốn. Những dụng cụ học tập tự làm, các tài liệu dạy chữ và thư Bác gửi giáo viên Bình dân học vụ hiện vẫn được lưu giữ, trưng bày. Qua những hiện vật ấy, chúng ta biết được việc học chữ đã được tổ chức bằng nhiều cách, với sự góp sức của người dân.",
+        "Bác theo dõi, động viên các thầy cô và những người tham gia phong trào. Việc biết đọc, biết viết giúp người dân đọc thông báo, ghi chép và tự tìm hiểu kiến thức. Những lớp Bình dân học vụ trở thành một phần đáng nhớ trong những năm đầu của nước Việt Nam độc lập."
       ],
       "question": "Theo em, biết đọc và biết viết giúp ích như thế nào trong cuộc sống?",
       "sourceIds": [
+        "literacy",
+        "literacyCollection",
         "biography"
       ]
     },
@@ -435,12 +479,16 @@
       "title": "Tết trồng cây",
       "image": "children",
       "paragraphs": [
-        "Tháng 11 năm 1959, Bác viết bài kêu gọi tổ chức Tết trồng cây. Mùa xuân năm 1960, phong trào được hưởng ứng ở nhiều nơi.",
-        "Bác cũng trực tiếp tham gia trồng cây và nhắc mọi người chăm sóc để cây sống, lớn lên. Đến nay, nhiều trường học và địa phương vẫn tổ chức trồng cây vào dịp đầu xuân."
+        "Ngày 28 tháng 11 năm 1959, Báo Nhân Dân đăng bài “Tết trồng cây” của Bác, ký tên Trần Lực. Bác đề nghị tổ chức một đợt trồng cây vào mùa xuân. Người nêu những lợi ích thiết thực của cây xanh đối với đời sống và khuyến khích mọi người cùng tham gia.",
+        "Mùa xuân năm 1960, nhiều nơi hưởng ứng lời kêu gọi ấy. Ngày 11 tháng 1, Bác cùng nhân dân Thủ đô trồng cây tại Công viên Hồ Bảy Mẫu, nay là Công viên Thống Nhất, Hà Nội. Bác trực tiếp tham gia công việc trồng cây.",
+        "Không chỉ vận động trồng thật nhiều, Bác còn chú ý đến việc giữ cho cây sống. Trong bài viết tiếp theo vào tháng 1 năm 1960, Người nhắc phải chăm nom, bảo vệ cây và coi trọng chất lượng. Trồng xong rồi bỏ mặc thì chưa làm được điều Bác mong muốn.",
+        "Tết trồng cây được tiếp tục trong những năm sau. Ngày mùng một Tết Kỷ Dậu, tức ngày 16 tháng 2 năm 1969, Bác trồng cây đa tại xã Vật Lại, Ba Vì. Đó là mùa xuân cuối cùng trong cuộc đời Người.",
+        "Ở trường, học sinh có thể tham gia bằng những việc vừa sức: trồng cây theo hướng dẫn của thầy cô, tưới nước đúng lúc và giữ gìn bồn cây. Một chậu cây của lớp cũng cần có người chăm sóc thường xuyên, giống như điều Bác đã nhắc khi phát động Tết trồng cây."
       ],
       "question": "Lớp mình có cây nào cần được chăm sóc? Em có thể cùng các bạn làm gì?",
       "sourceIds": [
-        "biography"
+        "treePlanting",
+        "treeArticles"
       ]
     }
   ],

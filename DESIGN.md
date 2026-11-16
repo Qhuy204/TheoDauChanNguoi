@@ -18,3 +18,10 @@ Các ảnh được tạo riêng theo frame tham chiếu, xuất lại định d
 ## Nội dung trên màn hình nhỏ
 
 Header có menu thu gọn, ảnh hero chuyển xuống dưới tiêu đề. Timeline tổng quan trượt ngang; mục lục chương dùng ô chọn dính. Các mốc sự kiện và ảnh xếp một cột. Kho tư liệu giữ hai cột thẻ gọn; các việc làm ở phần kết mở bằng disclosure. Chuyển động tắt khi người dùng bật giảm chuyển động.
+
+## Hoa sen theo ảnh tham chiếu của người dùng
+
+Đã tạo bằng imagegen tích hợp, dạng PNG nền trong suốt, dùng trực tiếp trong giao diện. Không còn dùng biểu tượng hoa sen SVG.
+
+- `dist/assets/lotus-red.png`: “Generate a refined transparent-background raster lotus logo based closely on the supplied reference. One centered symmetric overlapping lotus outline flower, compact wide silhouette, clean uniform thin lines, flat crimson #A5232B. No text, divider lines, badge, shadow, texture or background.”
+- `dist/assets/lotus-gold.png`: “Edit the generated red lotus. Preserve its exact geometry, composition and true transparency. Change visible strokes to flat antique gold #B18023. Clean uniform lines, no red pixels, speckles, added elements, divider lines or text.”

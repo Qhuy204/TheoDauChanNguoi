@@ -41,7 +41,7 @@ for (const name of assets) {
   const file = path.join(dist, name);
   assert((await stat(file)).size > 1000, `Empty asset: ${name}`);
 }
-for (const name of ['styles.css', 'app.js', 'assets/lotus.svg']) await stat(path.join(dist, name));
+for (const name of ['styles.css', 'app.js', 'assets/lotus-red.png', 'assets/lotus-gold.png']) await stat(path.join(dist, name));
 for (const anchor of ['gioi-thieu', 'hanh-trinh', 'tu-lieu', 'lam-theo-bac', 'media-dialog', 'load-error']) assert(html.includes(`id="${anchor}"`));
 execFileSync(process.execPath, ['--check', path.join(dist, 'app.js')]);
 execFileSync(process.execPath, ['--check', path.join(root, 'scripts/serve.mjs')]);
