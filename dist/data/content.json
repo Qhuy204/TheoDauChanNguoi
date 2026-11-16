@@ -1,0 +1,515 @@
+{
+  "site": {
+    "title": "Sáng mãi tên Người",
+    "subtitle": "Học tập và làm theo Bác",
+    "unit": "Chi bộ 2 – Đảng bộ Trường Tiểu học Gia Lâm",
+    "intro": "Bác đã sống, học tập và hoạt động ở những đâu? Mời các em tìm hiểu qua các mốc thời gian, ảnh và chuyện kể dưới đây.",
+    "heroImage": "assets/hero.webp",
+    "activityImage": "assets/activities.webp"
+  },
+  "sources": {
+    "biography": {
+      "name": "Hồ Chí Minh – Tiểu sử · Bảo tàng Hồ Chí Minh, NXB Chính trị Quốc gia, 2008",
+      "url": "https://tulieuvankien.dangcongsan.vn/c-mac-angghen-lenin-ho-chi-minh/book/ho-chi-minh/tieu-su-cuoc-doi-va-su-nghiep/ho-chi-minh-tieu-su-bao-tang-ho-chi-minh-nxb-chinh-tri-quoc-gia-ha-noi-nam-2008-20"
+    },
+    "departure": {
+      "name": "Báo Điện tử Chính phủ · Kỷ niệm 100 năm ngày Bác Hồ ra đi tìm đường cứu nước",
+      "url": "https://baochinhphu.vn/ky-niem-100-nam-ngay-bac-ho-ra-di-tim-duong-cuu-nuoc-5-6-1911-5-6-2011-10281640.htm"
+    },
+    "ducThanh": {
+      "name": "Bảo tàng Lịch sử Quốc gia · Khu di tích Dục Thanh lưu giữ nhiều kỷ vật quý về Bác",
+      "url": "https://baotanglichsu.vn/vi/Articles/3091/73130/khu-di-tich-duc-thanh-luu-giu-nhieu-ky-vat-quy-ve-bac.html"
+    },
+    "loseby": {
+      "name": "Ban Quản lý Lăng Chủ tịch Hồ Chí Minh · Bức tranh thêu và tình bạn thủy chung",
+      "url": "https://btllang.bqp.vn/tin-tuc/tin-tong-hop/1656-b-c-tranh-theu-va-tinh-b-n-th-y-chung.html"
+    },
+    "smallActions": {
+      "name": "Trường Tiểu học Khương Mai · Thi đua làm theo lời Bác dạy",
+      "url": "https://thkhuongmai.hanoi.edu.vn/ke-hoach-nho/thi-dua-lam-theo-loi-bac-day/ctfull/20556/153570"
+    }
+  },
+  "stages": [
+    {
+      "id": "tuoi-tho",
+      "years": "1890 – 1911",
+      "title": "Tuổi thơ và tuổi trẻ",
+      "shortTitle": "Thời niên thiếu",
+      "place": "Nghệ An · Huế · Phan Thiết",
+      "intro": "Bác Hồ sinh ngày 19 tháng 5 năm 1890 tại làng Hoàng Trù, Nghệ An. Khi còn nhỏ, Bác tên là Nguyễn Sinh Cung, sau đổi thành Nguyễn Tất Thành. Bác theo gia đình vào Huế học tập, rồi đến Phan Thiết dạy học trước khi vào Sài Gòn.",
+      "image": "village",
+      "storyId": "chuyen-tuoi-tho",
+      "events": [
+        {
+          "date": "19.05.1890",
+          "title": "Bác Hồ ra đời",
+          "text": "Nguyễn Sinh Cung chào đời tại làng Hoàng Trù, quê ngoại của Người."
+        },
+        {
+          "date": "1906 – 1908",
+          "title": "Học tập tại Huế",
+          "text": "Nguyễn Tất Thành theo học tại Huế, trong đó có Trường Quốc Học."
+        },
+        {
+          "date": "1910",
+          "title": "Dạy học tại Trường Dục Thanh",
+          "text": "Người dạy học tại Trường Dục Thanh, Phan Thiết, trước khi vào Sài Gòn."
+        }
+      ],
+      "lesson": "Trước khi ra nước ngoài, Bác đã từng làm công việc gì?",
+      "word": {
+        "term": "Đồng bào",
+        "meaning": "Những người cùng thuộc về một dân tộc, một đất nước."
+      },
+      "sourceIds": [
+        "biography"
+      ]
+    },
+    {
+      "id": "ra-di",
+      "years": "1911 – 1920",
+      "title": "Ra đi tìm đường cứu nước",
+      "shortTitle": "Rời Bến Nhà Rồng",
+      "place": "Từ Bến Nhà Rồng đến nước Pháp",
+      "intro": "Ngày 5 tháng 6 năm 1911, Nguyễn Tất Thành rời Bến Nhà Rồng để tìm đường cứu nước. Người vừa làm việc kiếm sống, vừa học hỏi ở nhiều nước. Năm 1919, tên Nguyễn Ái Quốc xuất hiện trong bản Yêu sách của nhân dân An Nam gửi tới Hội nghị Versailles.",
+      "image": "harbor",
+      "storyId": "chuyen-ra-di",
+      "events": [
+        {
+          "date": "05.06.1911",
+          "title": "Rời Bến Nhà Rồng",
+          "text": "Với tên Văn Ba, Nguyễn Tất Thành làm phụ bếp trên tàu Amiral Latouche-Tréville, bắt đầu hành trình tìm đường cứu nước."
+        },
+        {
+          "date": "18.06.1919",
+          "title": "Gửi bản Yêu sách",
+          "text": "Bản Yêu sách của nhân dân An Nam, ký tên Nguyễn Ái Quốc, được gửi tới Hội nghị Versailles."
+        },
+        {
+          "date": "1920",
+          "title": "Tìm thấy con đường cứu nước",
+          "text": "Nguyễn Ái Quốc tìm thấy con đường giải phóng dân tộc khi tiếp cận tư tưởng của Lênin; tháng 12, Người tham dự Đại hội Tours ở Pháp."
+        }
+      ],
+      "lesson": "Vì sao Nguyễn Tất Thành quyết định ra nước ngoài?",
+      "word": {
+        "term": "Độc lập",
+        "meaning": "Đất nước tự quyết định công việc của mình, không bị nước khác cai trị."
+      },
+      "sourceIds": [
+        "biography",
+        "departure"
+      ]
+    },
+    {
+      "id": "con-duong",
+      "years": "1920 – 1930",
+      "title": "Tìm thấy con đường cứu nước",
+      "shortTitle": "Viết báo, mở lớp",
+      "place": "Pháp · Liên Xô · Trung Quốc",
+      "intro": "Nguyễn Ái Quốc viết báo, nghiên cứu và tham gia các hoạt động cách mạng tại Pháp, Liên Xô và Trung Quốc. Tại Quảng Châu, Người mở lớp đào tạo thanh niên Việt Nam. Những bài giảng được tập hợp thành cuốn Đường Kách mệnh, xuất bản năm 1927.",
+      "image": "tours",
+      "storyId": "chuyen-con-duong",
+      "events": [
+        {
+          "date": "1922",
+          "title": "Tham gia sáng lập báo Người cùng khổ",
+          "text": "Nguyễn Ái Quốc tham gia sáng lập báo Người cùng khổ, lên tiếng về cuộc sống của nhân dân các thuộc địa."
+        },
+        {
+          "date": "06.1925",
+          "title": "Thành lập Hội Việt Nam Cách mạng Thanh niên",
+          "text": "Người thành lập Hội Việt Nam Cách mạng Thanh niên tại Quảng Châu, Trung Quốc."
+        },
+        {
+          "date": "1927",
+          "title": "Tác phẩm Đường Kách mệnh",
+          "text": "Những bài giảng của Người được tập hợp thành sách để bồi dưỡng cán bộ cách mạng."
+        }
+      ],
+      "lesson": "Nguyễn Ái Quốc đã dùng những cách nào để truyền đạt kiến thức?",
+      "word": {
+        "term": "Thuộc địa",
+        "meaning": "Đất nước hoặc vùng đất bị một nước khác chiếm giữ và cai trị."
+      },
+      "sourceIds": [
+        "biography"
+      ]
+    },
+    {
+      "id": "gian-nan",
+      "years": "1930 – 1941",
+      "title": "Những năm tháng gian nan ở nước ngoài",
+      "shortTitle": "Hoạt động ở nước ngoài",
+      "place": "Hồng Kông · Liên Xô · Trung Quốc",
+      "intro": "Đầu năm 1930, Nguyễn Ái Quốc chủ trì hội nghị thành lập Đảng Cộng sản Việt Nam tại Hồng Kông. Năm 1931, Người bị bắt. Sau khi được trả tự do, Người tiếp tục học tập, nghiên cứu tại Liên Xô, rồi trở lại Trung Quốc hoạt động và chuẩn bị về nước.",
+      "image": "learning",
+      "storyId": "chuyen-gian-nan",
+      "events": [
+        {
+          "date": "ĐẦU NĂM 1930",
+          "title": "Thành lập Đảng Cộng sản Việt Nam",
+          "text": "Nguyễn Ái Quốc chủ trì hội nghị hợp nhất tại Hồng Kông. Ngày 3 tháng 2 hằng năm là ngày kỷ niệm thành lập Đảng."
+        },
+        {
+          "date": "1931 – 1933",
+          "title": "Bị bắt tại Hồng Kông",
+          "text": "Người bị bắt tại Hồng Kông, sau đó được trả tự do với sự giúp đỡ của luật sư và bạn bè."
+        },
+        {
+          "date": "1934 – 1938",
+          "title": "Học tập và nghiên cứu tại Liên Xô",
+          "text": "Người học tập, nghiên cứu tại Liên Xô rồi trở lại Trung Quốc để tiếp tục hoạt động."
+        }
+      ],
+      "lesson": "Trong những năm ở nước ngoài, Bác đã gặp khó khăn gì?",
+      "word": {
+        "term": "Cách mạng",
+        "meaning": "Sự thay đổi lớn trong xã hội; ở đây là cuộc đấu tranh để nhân dân giành độc lập, tự do."
+      },
+      "sourceIds": [
+        "biography"
+      ]
+    },
+    {
+      "id": "ve-nuoc",
+      "years": "1941 – 1945",
+      "title": "Về nước lãnh đạo cách mạng",
+      "shortTitle": "Trở về Pác Bó",
+      "place": "Pác Bó · Tân Trào · Hà Nội",
+      "intro": "Ngày 28 tháng 1 năm 1941, Nguyễn Ái Quốc trở về nước sau gần ba mươi năm xa Tổ quốc. Người ở và làm việc tại Pác Bó, Cao Bằng, cùng Trung ương Đảng chuẩn bị cho cuộc đấu tranh giành độc lập. Tháng Tám năm 1945, nhân dân cả nước giành chính quyền.",
+      "image": "pacbo",
+      "storyId": "chuyen-ve-nuoc",
+      "events": [
+        {
+          "date": "28.01.1941",
+          "title": "Trở về Tổ quốc",
+          "text": "Nguyễn Ái Quốc trở về Tổ quốc, hoạt động tại Pác Bó, Cao Bằng."
+        },
+        {
+          "date": "05.1941",
+          "title": "Thành lập Mặt trận Việt Minh",
+          "text": "Người chủ trì Hội nghị Trung ương 8; Mặt trận Việt Minh được thành lập."
+        },
+        {
+          "date": "08.1945",
+          "title": "Cách mạng Tháng Tám",
+          "text": "Dưới sự lãnh đạo của Đảng và Chủ tịch Hồ Chí Minh, nhân dân vùng lên giành chính quyền trong cả nước."
+        }
+      ],
+      "lesson": "Bác trở về nước ở đâu, vào thời gian nào?",
+      "word": {
+        "term": "Việt Minh",
+        "meaning": "Tên gọi tắt của Việt Nam Độc lập Đồng minh, mặt trận đoàn kết nhân dân để giành độc lập."
+      },
+      "sourceIds": [
+        "biography",
+        "departure"
+      ]
+    },
+    {
+      "id": "khang-chien",
+      "years": "1945 – 1954",
+      "title": "Lãnh đạo kháng chiến chống thực dân Pháp",
+      "shortTitle": "Bảo vệ nền độc lập",
+      "place": "Hà Nội · Việt Bắc · Điện Biên Phủ",
+      "intro": "Ngày 2 tháng 9 năm 1945, Bác đọc Tuyên ngôn Độc lập tại Quảng trường Ba Đình. Chính phủ phải lo chống đói, dạy chữ và bảo vệ đất nước. Khi thực dân Pháp trở lại xâm lược, Bác cùng Đảng lãnh đạo nhân dân kháng chiến, đi đến chiến thắng Điện Biên Phủ năm 1954.",
+      "image": "portrait",
+      "storyId": "chuyen-khang-chien",
+      "events": [
+        {
+          "date": "02.09.1945",
+          "title": "Ngày độc lập",
+          "text": "Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập tại Quảng trường Ba Đình, Hà Nội."
+        },
+        {
+          "date": "19.12.1946",
+          "title": "Toàn quốc kháng chiến",
+          "text": "Bác ra Lời kêu gọi toàn quốc kháng chiến, động viên nhân dân bảo vệ Tổ quốc."
+        },
+        {
+          "date": "07.05.1954",
+          "title": "Chiến thắng Điện Biên Phủ",
+          "text": "Quân và dân Việt Nam giành chiến thắng quan trọng, góp phần kết thúc cuộc kháng chiến chống thực dân Pháp."
+        }
+      ],
+      "lesson": "Sau ngày độc lập, đất nước phải giải quyết những khó khăn nào?",
+      "word": {
+        "term": "Tuyên ngôn Độc lập",
+        "meaning": "Văn bản tuyên bố với nhân dân và thế giới rằng đất nước đã giành được độc lập."
+      },
+      "sourceIds": [
+        "biography"
+      ]
+    },
+    {
+      "id": "thong-nhat",
+      "years": "1954 – 1969",
+      "title": "Xây dựng miền Bắc, đấu tranh thống nhất đất nước",
+      "shortTitle": "Xây dựng và thống nhất",
+      "place": "Hà Nội · Những chuyến thăm nhân dân",
+      "intro": "Sau năm 1954, Bác cùng Đảng lãnh đạo xây dựng miền Bắc và đấu tranh thống nhất đất nước. Người đến thăm nhà máy, hợp tác xã, trường học và quan tâm đến đời sống nhân dân. Bác qua đời ngày 2 tháng 9 năm 1969, để lại Di chúc cho đồng bào, chiến sĩ cả nước.",
+      "image": "children",
+      "storyId": "chuyen-thong-nhat",
+      "events": [
+        {
+          "date": "1954",
+          "title": "Khôi phục và xây dựng miền Bắc",
+          "text": "Sau Hiệp định Genève, miền Bắc bước vào thời kỳ khôi phục và xây dựng, đồng thời tiếp tục đấu tranh thống nhất đất nước."
+        },
+        {
+          "date": "1959 – 1960",
+          "title": "Khởi xướng Tết trồng cây",
+          "text": "Bác khởi xướng Tết trồng cây, khuyến khích mọi người chăm lo cho môi trường sống."
+        },
+        {
+          "date": "02.09.1969",
+          "title": "Bác qua đời tại Hà Nội",
+          "text": "Chủ tịch Hồ Chí Minh qua đời. Bản Di chúc của Người được công bố sau đó."
+        }
+      ],
+      "lesson": "Từ việc Bác khởi xướng Tết trồng cây, em có thể làm gì ở trường mình?",
+      "word": {
+        "term": "Thống nhất đất nước",
+        "meaning": "Hai miền cùng chung một đất nước, nhân dân được sum họp trong hòa bình."
+      },
+      "sourceIds": [
+        "biography"
+      ]
+    }
+  ],
+  "images": {
+    "village": {
+      "title": "Một miền quê Nghệ An",
+      "src": "assets/village.webp",
+      "alt": "Tranh minh họa mái nhà tranh, hàng tre và ao sen ở một miền quê Nghệ An",
+      "caption": "Khung cảnh làng quê Nghệ An · Tranh minh họa",
+      "credit": "Minh họa tạo bằng AI cho website; không phải ảnh tư liệu hay bản phục dựng di tích.",
+      "kind": "illustration"
+    },
+    "learning": {
+      "title": "Sách và đồ dùng học tập",
+      "src": "assets/learning.webp",
+      "alt": "Tranh minh họa bàn gỗ giản dị với sách, bút và chiếc túi bên khung cửa có bóng lá",
+      "caption": "Sách và đồ dùng học tập · Tranh minh họa",
+      "credit": "Minh họa biểu tượng tạo bằng AI cho website; không phải bàn làm việc hay đồ vật lịch sử đã được xác minh của Bác.",
+      "kind": "illustration"
+    },
+    "harbor": {
+      "title": "Bến Nhà Rồng",
+      "src": "assets/harbor.webp",
+      "alt": "Tranh minh họa người thanh niên nhìn về bến cảng với tàu hơi nước và tòa nhà Nhà Rồng",
+      "caption": "Bến Nhà Rồng · Tranh minh họa",
+      "credit": "Minh họa tạo bằng AI cho website; không phải hình ảnh ghi lại sự kiện năm 1911.",
+      "kind": "illustration"
+    },
+    "tours": {
+      "title": "Nguyễn Ái Quốc tại Đại hội Tours",
+      "src": "assets/tours-1920.jpg",
+      "alt": "Ảnh đen trắng Nguyễn Ái Quốc phát biểu tại Đại hội Tours ở Pháp năm 1920",
+      "caption": "Nguyễn Ái Quốc tại Đại hội Tours, Pháp, tháng 12.1920",
+      "credit": "Không rõ tác giả · Wikimedia Commons / english.hochiminh.vn · Phạm vi công cộng theo hồ sơ nguồn. Ảnh gốc không chỉnh sửa; giao diện có thể hiển thị cắt theo khung.",
+      "url": "https://commons.wikimedia.org/wiki/File:Comrade_Nguyen_Ai_Quoc_at_the_national_congress_of_the_Socialist_Party_of_France_in_the_city_of_Tous,_France_in_December_1920.jpg",
+      "kind": "archive"
+    },
+    "pacbo": {
+      "title": "Suối Lê-nin ở Pác Bó",
+      "src": "assets/pac-bo.jpg",
+      "alt": "Ảnh dòng suối xanh ngọc giữa rừng cây tại khu di tích Pác Bó ở Cao Bằng",
+      "caption": "Suối Lê-nin, Pác Bó · Ảnh chụp năm 2016",
+      "credit": "[Tycho] / Shansov.net · Wikimedia Commons · CC BY-SA 3.0. Bản ảnh tối ưu kích thước, giữ nguyên nội dung; giao diện có thể cắt theo khung.",
+      "url": "https://commons.wikimedia.org/wiki/File:P%C3%A1c_B%C3%B3.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "kind": "photo"
+    },
+    "portrait": {
+      "title": "Chân dung Chủ tịch Hồ Chí Minh",
+      "src": "assets/portrait-1947.jpg",
+      "alt": "Ảnh chân dung đen trắng Chủ tịch Hồ Chí Minh",
+      "caption": "Chủ tịch Hồ Chí Minh · Khoảng năm 1947, theo hồ sơ nguồn",
+      "credit": "Không rõ tác giả · Wikimedia Commons · Phạm vi công cộng theo hồ sơ nguồn. Tên tệp nguồn ghi 1946, phần mô tả ghi khoảng 1947. Ảnh gốc không chỉnh sửa; giao diện có thể cắt theo khung.",
+      "url": "https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_-_1946_Portrait.jpg",
+      "kind": "archive"
+    },
+    "children": {
+      "title": "Bác Hồ với thiếu nhi quốc tế",
+      "src": "assets/children-1957.jpg",
+      "alt": "Chủ tịch Hồ Chí Minh cùng các thiếu nhi tại một trại hè gần Berlin năm 1957",
+      "caption": "Bác thăm thiếu nhi gần Berlin, ngày 28.07.1957",
+      "credit": "Bundesarchiv, Bild 183-48550-0036 / Sturm, Horst · CC BY-SA 3.0 DE. Ảnh gốc không chỉnh sửa; giao diện có thể cắt theo khung.",
+      "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-48550-0036,_Besuch_Ho_Chi_Minhs_bei_Pionieren,_bei_Berlin.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.vi",
+      "kind": "archive"
+    }
+  },
+  "stories": [
+    {
+      "id": "chuyen-tuoi-tho",
+      "stage": "tuoi-tho",
+      "title": "Thầy giáo Nguyễn Tất Thành",
+      "image": "village",
+      "paragraphs": [
+        "Năm 1910, Nguyễn Tất Thành đến Phan Thiết và dạy học tại Trường Dục Thanh. Khi ấy, Người còn rất trẻ. Ngoài dạy chữ, Người còn quan tâm đến việc rèn luyện sức khỏe cho học trò.",
+        "Sau một thời gian dạy học, Nguyễn Tất Thành vào Sài Gòn. Năm 1911, Người rời Bến Nhà Rồng để ra nước ngoài tìm đường cứu nước."
+      ],
+      "question": "Em biết những gì về Trường Dục Thanh?",
+      "sourceIds": [
+        "biography"
+      ]
+    },
+    {
+      "id": "chuyen-ra-di",
+      "stage": "ra-di",
+      "title": "Làm phụ bếp trên tàu",
+      "image": "harbor",
+      "paragraphs": [
+        "Nguyễn Tất Thành rời Sài Gòn ngày 5 tháng 6 năm 1911 trên tàu Amiral Latouche-Tréville. Người lấy tên Văn Ba và làm phụ bếp trên tàu.",
+        "Ở nước ngoài, Người làm nhiều nghề để kiếm sống. Trong những năm ấy, Người học ngoại ngữ, đọc sách báo và tìm hiểu cuộc sống của người dân. Người muốn tìm cách giúp đồng bào mình thoát khỏi cảnh mất nước."
+      ],
+      "question": "Bác đã làm gì để vừa kiếm sống, vừa học tập?",
+      "sourceIds": [
+        "departure",
+        "biography"
+      ]
+    },
+    {
+      "id": "chuyen-con-duong",
+      "stage": "con-duong",
+      "title": "Những lớp học ở Quảng Châu",
+      "image": "tours",
+      "paragraphs": [
+        "Tại Quảng Châu, Trung Quốc, Nguyễn Ái Quốc tổ chức các lớp đào tạo thanh niên Việt Nam. Người giảng về cách mạng và việc tổ chức lực lượng để giành độc lập.",
+        "Các bài giảng được tập hợp trong cuốn Đường Kách mệnh, xuất bản năm 1927. Những thanh niên được đào tạo sau đó trở về nước, truyền đạt điều đã học và tham gia hoạt động cách mạng."
+      ],
+      "question": "Những người dự lớp học đã làm gì khi trở về nước?",
+      "sourceIds": [
+        "biography"
+      ]
+    },
+    {
+      "id": "chuyen-gian-nan",
+      "stage": "gian-nan",
+      "title": "Những năm ở Hồng Kông",
+      "image": "learning",
+      "paragraphs": [
+        "Đầu năm 1930, Nguyễn Ái Quốc đến Hồng Kông và chủ trì hội nghị hợp nhất các tổ chức cộng sản, thành lập Đảng Cộng sản Việt Nam.",
+        "Năm 1931, Người bị chính quyền Anh tại Hồng Kông bắt giam. Luật sư Frank Loseby cùng gia đình và bạn bè đã giúp đỡ, bảo vệ Người. Sau khi được trả tự do, Người rời Hồng Kông và tiếp tục hoạt động."
+      ],
+      "question": "Ai đã giúp đỡ Nguyễn Ái Quốc khi Người bị bắt?",
+      "sourceIds": [
+        "biography"
+      ]
+    },
+    {
+      "id": "chuyen-ve-nuoc",
+      "stage": "ve-nuoc",
+      "title": "Bác trở về Pác Bó",
+      "image": "pacbo",
+      "paragraphs": [
+        "Ngày 28 tháng 1 năm 1941, Nguyễn Ái Quốc trở về nước qua biên giới Cao Bằng. Gần ba mươi năm kể từ ngày rời Bến Nhà Rồng, Người mới trở lại Tổ quốc.",
+        "Tại Pác Bó, Người sống và làm việc trong điều kiện thiếu thốn, cùng Trung ương Đảng lãnh đạo cách mạng. Tháng 5 năm 1941, Người chủ trì Hội nghị Trung ương 8. Mặt trận Việt Minh được thành lập để đoàn kết nhân dân đấu tranh giành độc lập."
+      ],
+      "question": "Em hãy tìm Cao Bằng trên bản đồ Việt Nam.",
+      "sourceIds": [
+        "biography",
+        "departure"
+      ]
+    },
+    {
+      "id": "chuyen-khang-chien",
+      "stage": "khang-chien",
+      "title": "Những lớp học Bình dân học vụ",
+      "image": "portrait",
+      "paragraphs": [
+        "Sau Cách mạng Tháng Tám, phần lớn người dân nước ta chưa biết đọc, biết viết. Bác và Chính phủ phát động phong trào Bình dân học vụ để dạy chữ cho nhân dân.",
+        "Các lớp học được mở ở nhiều nơi. Người biết chữ dạy người chưa biết chữ; nhiều người đi học sau giờ làm việc. Phong trào giúp người dân có thêm cơ hội học tập trong những năm đầu đất nước độc lập."
+      ],
+      "question": "Theo em, biết đọc và biết viết giúp ích như thế nào trong cuộc sống?",
+      "sourceIds": [
+        "biography"
+      ]
+    },
+    {
+      "id": "chuyen-thong-nhat",
+      "stage": "thong-nhat",
+      "title": "Tết trồng cây",
+      "image": "children",
+      "paragraphs": [
+        "Tháng 11 năm 1959, Bác viết bài kêu gọi tổ chức Tết trồng cây. Mùa xuân năm 1960, phong trào được hưởng ứng ở nhiều nơi.",
+        "Bác cũng trực tiếp tham gia trồng cây và nhắc mọi người chăm sóc để cây sống, lớn lên. Đến nay, nhiều trường học và địa phương vẫn tổ chức trồng cây vào dịp đầu xuân."
+      ],
+      "question": "Lớp mình có cây nào cần được chăm sóc? Em có thể cùng các bạn làm gì?",
+      "sourceIds": [
+        "biography"
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "id": "phim-cuoc-doi",
+      "title": "Hình ảnh về đời hoạt động của Hồ Chủ tịch",
+      "shortTitle": "Hình ảnh về đời hoạt động của Hồ Chủ tịch",
+      "stage": "all",
+      "image": "portrait",
+      "description": "Phim tư liệu về các hoạt động của Chủ tịch Hồ Chí Minh, từ hành trình tìm đường cứu nước đến những năm lãnh đạo đất nước.",
+      "sourceName": "hochiminh.vn · Cơ quan chủ quản: Báo Nhân Dân",
+      "url": "https://hochiminh.vn/video/hinh-anh-ve-doi-hoat-dong-cua-ho-chu-tich-15",
+      "src": "https://hochiminh.vn/upload/3000001/20251101/6706dbbc1d180e87eaecea5159da12f7DB_2000177_20Hinh_20anh_20ve_20doi_20HD_20HCM.mp4",
+      "summary": "Khi xem, em thử tìm một sự kiện đã đọc trong phần Hành trình."
+    },
+    {
+      "id": "phim-tro-ve",
+      "title": "Đường về Tổ quốc",
+      "stage": "ve-nuoc",
+      "image": "pacbo",
+      "description": "Phim tài liệu về hành trình trở về Tổ quốc của Nguyễn Ái Quốc.",
+      "sourceName": "hochiminh.vn · Cơ quan chủ quản: Báo Nhân Dân",
+      "url": "https://hochiminh.vn/video/phim-tai-lieu-duong-ve-to-quoc-8",
+      "src": "https://hochiminh.vn/upload/3000001/20251101/7b27c1efadc64c2be95557e6665f9395Duong_20ve_20To_20quoc_20VFI_20_12_.mp4",
+      "summary": "Sau khi xem, em hãy kể lại Bác trở về nước ở đâu và vào thời gian nào."
+    },
+    {
+      "id": "phim-chan-dung",
+      "title": "Hồ Chí Minh – Chân dung một con người",
+      "stage": "thong-nhat",
+      "image": "children",
+      "description": "Phim tài liệu về cuộc sống và các hoạt động của Chủ tịch Hồ Chí Minh.",
+      "sourceName": "hochiminh.vn · Cơ quan chủ quản: Báo Nhân Dân",
+      "url": "https://hochiminh.vn/video/phim-tai-lieu-ho-chi-minh-chan-dung-mot-con-nguoi-13",
+      "src": "https://hochiminh.vn/upload/3000001/20251101/4a1ddb5aeac87d278d72c5785ce9f355HCM_20-_20chan_20dung_20mot_20con_20nguoi_20111VFI.mp4",
+      "summary": "Em nhớ nhất việc làm nào của Bác trong phim? Hãy kể lại với thầy cô hoặc cha mẹ."
+    }
+  ],
+  "activities": [
+    {
+      "icon": "book",
+      "title": "Chăm chỉ học tập",
+      "text": "Tự chuẩn bị bài, giữ gìn sách vở và hỏi thầy cô khi chưa hiểu.",
+      "actions": [
+        "Chuẩn bị sách vở trước khi đến lớp.",
+        "Tự làm bài; hỏi thầy cô những phần chưa hiểu.",
+        "Đọc sách và trao đổi với bạn về điều mình vừa đọc."
+      ]
+    },
+    {
+      "icon": "heart",
+      "title": "Quan tâm, giúp đỡ bạn",
+      "text": "Hỏi thăm khi bạn nghỉ học, cùng ôn bài và chia sẻ đồ dùng khi bạn cần.",
+      "actions": [
+        "Hỏi thăm khi bạn nghỉ học hoặc bị ốm.",
+        "Giúp bạn ôn lại phần bài đã nghỉ.",
+        "Báo với thầy cô khi thấy bạn cần được giúp đỡ."
+      ]
+    },
+    {
+      "icon": "leaf",
+      "title": "Tiết kiệm và chăm sóc cây",
+      "text": "Dùng giấy vừa đủ, khóa vòi nước sau khi dùng và chăm sóc cây của lớp.",
+      "actions": [
+        "Tắt đèn, khóa vòi nước sau khi sử dụng.",
+        "Phân loại giấy đã dùng để tái chế.",
+        "Chăm sóc cây và bỏ rác đúng nơi quy định."
+      ]
+    }
+  ]
+}
