@@ -103,19 +103,19 @@ function openMedia(type, id, opener) {
   if (type === 'image') {
     const image = data.images[id];
     if (!image) return;
-    html = `<h2 id="dialog-title" tabindex="-1">${escape(image.title)}</h2>${imageMarkup(image, 'class="dialog-image"')}<p class="dialog-caption">${escape(image.caption)}</p>`;
+    html = `<figure class="dialog-photo"><div class="dialog-image-stage">${imageMarkup(image, 'class="dialog-image"')}</div><figcaption class="dialog-photo-caption"><h2 id="dialog-title" tabindex="-1">${escape(image.title)}</h2><p class="dialog-caption">${escape(image.caption)}</p></figcaption></figure>`;
   } else if (type === 'story') {
     const story = data.stories.find(item => item.id === id);
     if (!story) return;
     const image = data.images[story.image];
-    html = `<h2 id="dialog-title" tabindex="-1">${escape(story.title)}</h2>${imageMarkup(image, `class="story-image${story.image === 'portrait' ? ' portrait-bg' : ''}"`)}<p class="dialog-caption">${escape(image.caption)}</p>${story.paragraphs.map(paragraph => `<p class="story-paragraph">${escape(paragraph)}</p>`).join('')}<div class="story-question"><strong>Sau khi đọc</strong>${escape(story.question)}</div>`;
+    html = `<article class="dialog-reading"><h2 id="dialog-title" tabindex="-1">${escape(story.title)}</h2><figure class="story-figure">${imageMarkup(image, `class="story-image${story.image === 'portrait' ? ' portrait-bg' : ''}"`)}<figcaption class="dialog-caption">${escape(image.caption)}</figcaption></figure><div class="story-copy">${story.paragraphs.map(paragraph => `<p class="story-paragraph">${escape(paragraph)}</p>`).join('')}</div><aside class="story-question"><strong>Cùng trao đổi</strong><p>${escape(story.question)}</p></aside></article>`;
   } else if (type === 'video') {
     const video = data.videos.find(item => item.id === id);
     if (!video) return;
-    html = `<h2 id="dialog-title" tabindex="-1">${escape(video.title)}</h2><video id="active-video" class="video-player" controls playsinline preload="none" poster="${asset(data.images[video.image].src)}" aria-label="${escape(video.title)}"><source src="${safeUrl(video.src)}" type="video/mp4">Trình duyệt chưa hỗ trợ phát phim. Em có thể mở phim tại nguồn bên dưới.</video><div class="video-error" id="video-error" role="status" hidden>Phim chưa phát được ở đây. Em hãy bấm “Xem phim tại nguồn” bên dưới để tiếp tục.</div><p class="video-summary">${escape(video.summary)}</p><div class="dialog-source-links">${external(video.url, 'Xem phim tại nguồn ↗')}</div>`;
+    html = `<article class="dialog-film"><h2 id="dialog-title" tabindex="-1">${escape(video.title)}</h2><video id="active-video" class="video-player" controls playsinline preload="none" poster="${asset(data.images[video.image].src)}" aria-label="${escape(video.title)}"><source src="${safeUrl(video.src)}" type="video/mp4">Trình duyệt chưa hỗ trợ phát phim. Em có thể mở phim tại nguồn bên dưới.</video><div class="video-error" id="video-error" role="status" hidden>Phim chưa phát được ở đây. Em hãy bấm “Xem phim tại nguồn” bên dưới để tiếp tục.</div><p class="video-summary">${escape(video.summary)}</p><div class="dialog-source-links">${external(video.url, 'Xem phim tại nguồn ↗')}</div></article>`;
   } else return;
   dialogOpener = opener;
-  $('#dialog-type').textContent = typeNames[type];
+  dialog.dataset.type = type;
   $('#dialog-content').innerHTML = html;
   dialog.showModal();
   document.body.classList.add('modal-open');
@@ -232,6 +232,17 @@ function attachEvents() {
   });
   $('#dialog-close').addEventListener('click', closeMedia);
   dialog.addEventListener('close', clearMedia);
+  dialog.addEventListener('keydown', event => {
+    if (event.key !== 'Tab') return;
+    const controls = $$('button:not(:disabled), a[href], video[controls], [tabindex="0"]', dialog)
+      .filter(control => control.getClientRects().length);
+    const first = controls[0], last = controls[controls.length - 1];
+    // The heading receives initial focus; its next Tab should reach a control.
+    if (!controls.includes(document.activeElement) || (event.shiftKey ? document.activeElement === first : document.activeElement === last)) {
+      event.preventDefault();
+      (event.shiftKey ? last : first)?.focus({ preventScroll: true });
+    }
+  });
   // Close only if both pointer-down and pointer-up occurred on the backdrop.
   let downOnBackdrop = false;
   dialog.addEventListener('pointerdown', event => { downOnBackdrop = event.target === dialog && outsideDialog(event); });

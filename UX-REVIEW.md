@@ -48,3 +48,9 @@ Website chưa có ảnh hoạt động thực tế của Trường Tiểu học 
 - Thay hai menu chọn giai đoạn bằng combobox tùy chỉnh: nền ngà, mũi tên đỏ, viền focus vàng và dấu chọn rõ ràng. Mỗi lựa chọn tách năm và tên chặng thành hai dòng để đọc được đầy đủ.
 - Menu hiển thị ngoài thanh dính để tránh bị cắt; tự mở lên hoặc xuống theo khoảng trống và giới hạn chiều rộng theo màn hình. Giữ select gốc làm nguồn giá trị và sự kiện cho điều hướng, bộ lọc và nút đặt lại.
 - Đã thử chọn bằng chuột, phím mũi tên, Home/End, Enter, Tab và Escape; điều hướng chặng trả focus về nội dung, bộ lọc cập nhật đúng danh sách. Escape giữ nguyên giá trị. Kiểm tra menu ở 360px và 1366px cho thấy không tràn ngang; đây chưa phải kiểm thử với trình đọc màn hình thực tế.
+
+## Khung xem tư liệu
+
+- Bỏ thanh nhãn loại tư liệu và tiêu đề đỏ lớn phía trên ảnh. Ảnh nằm trước, tên và chú thích căn trái ở dưới; khung vuông nhẹ, không làm mờ hậu cảnh, không bo góc ảnh và không cắt nội dung ảnh.
+- Dùng nút “Đóng” có chữ và biểu tượng, luôn nằm ở đầu khung khi cuộn. Hộp chuyện có chiều rộng đọc tối đa 640px; câu hỏi cuối chuyện dùng đường phân cách, bỏ ô nền màu. Khung phim dùng cùng cách trình bày.
+- Đã kiểm tra ảnh, chuyện và phim; ảnh ở 360px và 1366px không tràn ngang hoặc bị cắt. Đã thử cuộn chuyện trên điện thoại, giữ nút đóng trong màn hình, vòng Tab trong dialog, Escape, trả focus về nút mở và gỡ trình phát khi đóng. `npm run check` đạt.
