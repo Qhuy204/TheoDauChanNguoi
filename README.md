@@ -27,13 +27,13 @@ npm run build
 
 Preview: http://127.0.0.1:5173. npm start xem bản build bằng Wrangler. Server tĩnh không chạy phần đăng nhập/quản lý.
 
-npm run check kiểm tra nội dung gốc và 26 trường hợp API/định dạng/cache: quyền truy cập, cookie, CSRF, xung đột phiên bản, ảnh, lưu định dạng, tương thích bài cũ, liên kết nội dung và nội dung không an toàn. tests/cms-rls.sql kiểm tra RLS, slug, liên kết ảnh và xuất bản trong transaction rollback, không giữ dữ liệu thử.
+npm run check kiểm tra nội dung gốc và 27 trường hợp API/định dạng/cache: quyền truy cập, cookie, CSRF, xung đột phiên bản, ảnh, lưu định dạng, tương thích bài cũ, liên kết nội dung và nội dung không an toàn. tests/cms-rls.sql kiểm tra RLS, slug, liên kết ảnh và xuất bản trong transaction rollback, không giữ dữ liệu thử.
 
 ## Bộ nhớ đệm
 
 Trang chủ giữ bản nội dung công khai trong localStorage và bộ nhớ, dùng lại trong 30 giây; khi cũ sẽ hiển thị bản đang có và kiểm tra cập nhật nền bằng ETag. Các yêu cầu đồng thời được gộp. Khi giáo viên xuất bản, tab cùng trình duyệt được báo cập nhật; nội dung hành trình có nút tải lại, danh sách bài tự làm mới. Không lưu phiên đăng nhập hay bản nháp vào cache này.
 
-API công khai dùng bộ nhớ giới hạn 128 mục/30 giây, gộp truy vấn đang chạy, Worker Cache API và ETag/304. JSON: max-age 30 giây, stale-while-revalidate 60 giây; ảnh đã công khai: trình duyệt 1 giờ, edge 24 giờ. Lưu/xuất bản xóa cache liên quan trên isolate hiện tại. Isolate/thiết bị khác có thể còn thấy bản cũ trong thời hạn cache; đây không phải đồng bộ tức thì toàn cầu. API quản lý và ảnh nháp luôn private/no-store.
+API công khai dùng bộ nhớ giới hạn 128 mục/30 giây, gộp truy vấn đang chạy và ETag/304. Worker Cache API chỉ được dùng khi hosting cho phép; bản Sites hiện tại chặn cache mặc định nên tự dùng bộ nhớ và cache trình duyệt, không báo lỗi. JSON: max-age 30 giây, stale-while-revalidate 60 giây; ảnh đã công khai: trình duyệt 1 giờ, s-maxage 24 giờ khi có edge cache. Lưu/xuất bản xóa cache liên quan trên isolate hiện tại. Isolate/thiết bị khác có thể còn thấy bản cũ trong thời hạn cache; đây không phải đồng bộ tức thì toàn cầu. API quản lý và ảnh nháp luôn private/no-store.
 
 ## Supabase
 

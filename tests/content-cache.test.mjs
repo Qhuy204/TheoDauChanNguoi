@@ -9,3 +9,14 @@ test('published content tracks uploaded images',()=>{const d=structuredClone(see
 test('server cache coalesces concurrent reads and invalidates after publication',async()=>{clearPublicMemory();let count=0;const load=async()=>{count++;await new Promise(r=>setTimeout(r,5));return {revision:count};};const values=await Promise.all(Array.from({length:20},()=>cachedValue('test-content',load)));assert.equal(count,1);assert(values.every(v=>v.revision===1));await cachedValue('test-content',load);assert.equal(count,1);clearPublicMemory();assert.equal((await cachedValue('test-content',load)).revision,2);});
 test('an in-flight old response cannot repopulate the invalidated cache',async()=>{clearPublicMemory();let finish;const old=cachedValue('race',()=>new Promise(r=>{finish=r;}));await Promise.resolve();clearPublicMemory();await cachedValue('race',async()=>({revision:2}));finish({revision:1});await old;assert.equal((await cachedValue('race',async()=>({revision:3}))).revision,2);});
 test('public JSON uses ETags while authenticated session responses remain uncacheable',async()=>{const request=new Request('https://school.test/api/cms/site-content'),load=()=>new Response(JSON.stringify({revision:1}),{headers:{'Content-Type':'application/json'}});const first=await publicCachedRequest(request,load);const tag=first.headers.get('ETag');assert(tag);assert(first.headers.get('Cache-Control').includes('max-age=30'));const next=await publicCachedRequest(new Request(request,{headers:{'If-None-Match':tag}}),load);assert.equal(next.status,304);const privateResponse=await publicCachedRequest(new Request('https://school.test/api/cms/session'),()=>new Response('{}',{headers:{'Cache-Control':'no-store','Set-Cookie':'test=1'}}));assert.equal(privateResponse.headers.get('ETag'),null);assert.equal(privateResponse.headers.get('Cache-Control'),'no-store');});
+
+test('restricted Worker cache access falls back without breaking public content',async()=>{
+ const prior=Object.getOwnPropertyDescriptor(globalThis,'caches');
+ try{
+  Object.defineProperty(globalThis,'caches',{configurable:true,value:{get default(){throw Error('This Worker is not permitted to access the default cache.');}}});
+  const r=await publicCachedRequest(new Request('https://school.test/api/cms/site-content'),()=>new Response('{"revision":3}'));
+  assert.equal(r.status,200);assert.equal(r.headers.get('X-Content-Cache'),'MEMORY');assert.equal((await r.json()).revision,3);
+  Object.defineProperty(globalThis,'caches',{configurable:true,value:{default:{async match(){throw Error('Cache unavailable');}}}});
+  assert.equal((await publicCachedRequest(new Request('https://school.test/api/cms/posts'),()=>new Response('{}'))).status,200);
+ }finally{if(prior)Object.defineProperty(globalThis,'caches',prior);else delete globalThis.caches;}
+});
