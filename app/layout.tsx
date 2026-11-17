@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./cms.css";
+import "../public/header.css";
 
 export const metadata: Metadata = {
   title: "Sáng mãi tên Người · Trường Tiểu học Gia Lâm",

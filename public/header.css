@@ -1,0 +1,48 @@
+/* Shared masthead for the historical homepage and the publishing pages. */
+:root{--header:112px}
+html{scrollbar-gutter:stable}
+.school-header{position:sticky;top:0;z-index:30;background:rgba(255,252,245,.98);font-family:'Be Vietnam Pro',system-ui,sans-serif;color:#26312d}
+.school-header .school-header-inner{position:relative;width:min(1320px,calc(100% - 96px));min-height:112px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0;border-bottom:1px solid #d7ab48}
+.school-header .school-brand{display:flex;align-items:center;gap:17px;min-width:0;flex:0 1 410px;text-decoration:none}
+.school-header .school-header-inner .school-brand img{display:block;width:76px;height:76px;max-width:none;flex-shrink:0;object-fit:contain;padding:3px;border:0;border-radius:9px;background:#fff;filter:none}
+.school-header .school-brand-copy{display:block;min-width:0;font-size:18px;font-weight:600;line-height:1.5;color:#a5232b;max-width:325px;text-wrap:balance}
+.school-header .school-header-actions{display:flex;align-items:center;gap:18px;flex-shrink:0}
+.school-header .school-nav{display:flex;position:static;align-items:center;gap:2px;margin:0;padding:0;border:0;box-shadow:none;background:transparent}
+.school-header .school-nav a{display:block;padding:10px 12px;border-radius:7px;color:#26312d;text-decoration:none;font-size:14px;font-weight:600;line-height:1.7;white-space:nowrap;transition:background .15s,color .15s}
+.school-header .school-nav a:hover{background:#f2e8dd;color:#a5232b}
+.school-header .school-nav a.is-active{background:#f2e8dd;color:#a5232b}
+.school-header .school-login{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 17px;border:1px solid #a5232b;border-radius:7px;background:#a5232b;color:#fff;text-decoration:none;font-size:14px;font-weight:600;line-height:1.6;white-space:nowrap}
+.school-header .school-login:hover{background:#811b24;border-color:#811b24}
+.school-header .school-login svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.school-header .school-menu{display:none;border:0;background:transparent;padding:10px;width:44px;height:44px;flex-shrink:0;cursor:pointer}
+.school-header .school-menu span{display:block;height:2px;width:22px;background:#a5232b;transition:transform .15s,opacity .15s}
+.school-header a:focus-visible,.school-header button:focus-visible{outline:3px solid #d7ab48;outline-offset:4px}
+@media(max-width:1180px){
+ .school-header .school-header-inner{width:calc(100% - 48px)}
+ .school-header .school-header-actions{gap:10px}
+ .school-header .school-menu{display:flex;flex-direction:column;justify-content:center;gap:5px}
+ .school-header .school-menu[aria-expanded=true] span:first-child{transform:translateY(7px) rotate(45deg)}
+ .school-header .school-menu[aria-expanded=true] span:nth-child(2){opacity:0}
+ .school-header .school-menu[aria-expanded=true] span:last-child{transform:translateY(-7px) rotate(-45deg)}
+ .school-header .school-nav{display:none;position:absolute;top:100%;left:0;right:0;padding:10px;background:#fffcf5;border:1px solid #ded7c9;border-top:0;box-shadow:0 12px 20px #26312d0d;z-index:2}
+ .school-header .school-nav.is-open{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+ .school-header .school-nav a{padding:13px 10px;text-align:center;font-size:14px}
+}
+@media(max-width:700px){
+ :root{--header:80px}
+ .school-header .school-header-inner{width:calc(100% - 32px);min-height:80px;gap:10px}
+ .school-header .school-brand{gap:8px;flex:0 1 300px}
+ .school-header .school-header-inner .school-brand img{width:52px;height:52px;padding:2px;border-radius:6px}
+ .school-header .school-brand-copy{font-size:14px;max-width:200px}
+ .school-header .school-header-actions{gap:4px}
+ .school-header .school-login{font-size:13px;padding:9px 12px;min-height:44px}
+ .school-header .school-login svg{display:none}
+ .school-header .school-menu{width:36px;padding:7px}
+ .school-header .school-nav.is-open{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:480px){
+ .school-header .school-header-inner .school-brand img{width:44px;height:44px}
+ .school-header .school-brand-copy{font-size:12px;line-height:1.45;max-width:160px}
+ .school-header .school-login{font-size:12px;padding-inline:10px}
+}
+@media(prefers-reduced-motion:reduce){.school-header a,.school-header .school-menu span{transition:none}}

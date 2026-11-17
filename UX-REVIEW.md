@@ -75,3 +75,9 @@ Website chưa có ảnh hoạt động thực tế của Trường Tiểu học 
 - `/quan-ly` dùng bố cục soạn báo với tiêu đề lớn, đoạn mở đầu và phần nội dung rộng. Bỏ trường đường dẫn và vùng ảnh đại diện; server tự tạo slug, giữ đường dẫn khi sửa. Nút Thêm ảnh chèn figure ngay tại con trỏ, có chú thích và hoàn tác. Ảnh đầu bài tự dùng ở danh sách.
 - Đã tải ảnh thật trong editor, sửa chú thích, lưu nháp, tải lại và xem trước thành công. Kiểm tra quyền và xung đột tại cả API lẫn Supabase RLS. Nội dung nháp thử được khôi phục; phép thử xuất bản chỉ dùng nội dung và liên kết ảnh giống hệt bản gốc đã duyệt.
 - Nội dung công khai có cache client, gộp yêu cầu, ETag/304 và cache Worker; phần quản lý/nháp không cache. Các thiết bị khác có thể thấy bản cũ trong thời hạn cache được ghi trong README.
+
+## Header chung và lối vào đăng nhập
+
+- Trang chủ, bài viết, đăng nhập và quản lý dùng chung `public/header.css`: cùng logo, dòng đơn vị, chiều cao, chiều rộng, đường kẻ vàng và menu Giới thiệu/Hành trình/Tư liệu/Làm theo Bác/Bài viết. Giữ chỗ thanh cuộn để header không dịch ngang giữa trang dài và trang ngắn.
+- Nút Đăng nhập nền đỏ nằm ngoài menu thu gọn, luôn hiện trên điện thoại. Menu có trạng thái mở/đóng, Escape trả focus về nút, liên kết đóng menu khi chọn.
+- Đã kiểm tra màn hình 360 px và 1366 px: logo và chữ có cùng kích thước giữa trang chủ/bài viết, nút đăng nhập dẫn tới đúng trang, menu dùng được và không tràn ngang. Typecheck và kiểm tra nội dung đạt.

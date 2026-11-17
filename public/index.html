@@ -13,6 +13,7 @@
   <link rel="icon" href="assets/gia-lam-logo.png" type="image/png">
   <link rel="preload" href="assets/hero.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="header.css">
   <script src="app.js" type="module"></script>
 </head>
 <body>
@@ -29,20 +30,23 @@
     <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
   </svg>
   <a href="#main" class="skip-link">Chuyển đến nội dung</a>
-  <header class="site-header">
-    <div class="header-inner wrap">
-      <a class="brand" href="#gioi-thieu" aria-label="Chi bộ 2 – Đảng bộ Trường Tiểu học Gia Lâm – về đầu trang">
+  <header class="site-header school-header">
+    <div class="header-inner school-header-inner">
+      <a class="brand school-brand" href="#gioi-thieu" aria-label="Chi bộ 2 – Đảng bộ Trường Tiểu học Gia Lâm – về đầu trang">
         <img class="brand-mark" src="assets/gia-lam-logo.png" alt="Logo Trường Tiểu học Gia Lâm" width="76" height="76">
-        <span class="brand-copy"><span class="brand-unit" data-site-unit>Chi bộ 2 – Đảng bộ Trường Tiểu học Gia Lâm</span></span>
+        <span class="brand-copy"><span class="brand-unit school-brand-copy" data-site-unit>Chi bộ 2 – Đảng bộ Trường Tiểu học Gia Lâm</span></span>
       </a>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Mở menu điều hướng"><span></span><span></span><span></span></button>
-      <nav id="main-nav" class="main-nav" aria-label="Điều hướng chính">
+      <div class="school-header-actions">
+      <nav id="main-nav" class="main-nav school-nav" aria-label="Điều hướng chính">
         <a href="#gioi-thieu" class="is-active" aria-current="location">Giới thiệu</a>
         <a href="#hanh-trinh">Hành trình</a>
         <a href="#tu-lieu">Tư liệu</a>
         <a href="#lam-theo-bac">Làm theo Bác</a>
-        <a href="#bai-viet-moi">Bài viết</a>
+        <a href="/bai-viet">Bài viết</a>
       </nav>
+      <a class="school-login" href="/dang-nhap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v16h-6M4 12h11m-4-4 4 4-4 4"/></svg><span>Đăng nhập</span></a>
+      <button class="menu-toggle school-menu" aria-expanded="false" aria-controls="main-nav" aria-label="Mở menu điều hướng"><span></span><span></span><span></span></button>
+      </div>
     </div>
     <div class="reading-progress" aria-hidden="true"><span></span></div>
   </header>
