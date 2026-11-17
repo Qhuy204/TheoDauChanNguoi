@@ -7,6 +7,8 @@ Website hành trình của Chủ tịch Hồ Chí Minh và bài viết của Tr�
 - Đăng nhập email/mật khẩu: /dang-nhap, dùng Supabase Auth, không dùng ChatGPT để đăng nhập.
 - Quản lý: /quan-ly. Giáo viên sửa và đăng bài của mình; admin quản lý mọi bài và quyền các hồ sơ đã được cấp.
 - Lưu nháp, đăng/gỡ bài, xem trước; ảnh JPG/PNG/WebP tối đa 5 MB; kiểm tra phiên bản khi lưu để tránh ghi đè.
+- Trình soạn thảo Tiptap: đậm, nghiêng, gạch chân/ngang, tiêu đề, danh sách, trích dẫn, liên kết và hoàn tác. Nội dung có định dạng lưu thành JSON có tiền tố richtext:v1: trong cột body; máy chủ chỉ chấp nhận các node/mark được phép, bài cũ vẫn đọc và sửa được.
+- Trang chủ có vùng Bài viết mới sau phần tổng quan hành trình, hiển thị ba bài công khai mới nhất từ Supabase. Bản nháp không xuất hiện; trạng thái trống/lỗi và tải lại hoạt động độc lập với timeline.
 
 ## Chạy và kiểm tra
 
@@ -22,7 +24,7 @@ npm run build
 
 Preview: http://127.0.0.1:5173. npm start xem bản build bằng Wrangler. Server tĩnh không chạy phần đăng nhập/quản lý.
 
-npm run check kiểm tra nội dung gốc và 12 trường hợp API: quyền truy cập, cookie, CSRF, xung đột phiên bản, ảnh. tests/cms-rls.sql kiểm tra RLS trong transaction rollback, không giữ dữ liệu thử.
+npm run check kiểm tra nội dung gốc và 18 trường hợp API/định dạng: quyền truy cập, cookie, CSRF, xung đột phiên bản, ảnh, lưu định dạng, tương thích bài cũ và nội dung không an toàn. tests/cms-rls.sql kiểm tra RLS trong transaction rollback, không giữ dữ liệu thử.
 
 ## Supabase
 

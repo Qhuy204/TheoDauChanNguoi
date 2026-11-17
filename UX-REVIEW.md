@@ -61,3 +61,10 @@ Website chưa có ảnh hoạt động thực tế của Trường Tiểu học 
 - Bài mặc định là bản nháp, có xem trước, đăng/gỡ công khai và ảnh đại diện. Giáo viên quản lý bài của mình; admin quản lý mọi bài và quyền các hồ sơ khác. Cảnh báo khi rời nội dung chưa lưu và kiểm tra phiên bản khi lưu.
 - Đã kiểm tra 12 trường hợp API, typecheck và build. Kiểm tra RLS trực tiếp trên Supabase bằng transaction rollback đã qua: khách không đọc bản nháp, giáo viên không đọc nháp/sửa bài của người khác hoặc tự nâng quyền, có thể đăng bài của mình.
 - Kiểm tra trình duyệt: trang đăng nhập, trang bài viết trống, chuyển khách chưa đăng nhập về trang đăng nhập, thông báo sai mật khẩu và màn hình 360px không tràn ngang. Chưa kiểm tra toàn bộ thao tác qua trình duyệt bằng tài khoản thật trước khi admin đầu tiên được chỉ định và cấp hồ sơ.
+
+## Trình soạn thảo và bài viết trên trang chủ
+
+- Thay textarea Markdown bằng Tiptap với thanh công cụ cùng màu website: đậm, nghiêng, gạch chân/ngang, tiêu đề mục/nhỏ, hai loại danh sách, trích dẫn, liên kết, hoàn tác và xóa định dạng. Chèn link qua ô nhập trong editor; không dùng hộp prompt của trình duyệt.
+- Dùng cấu trúc JSON được kiểm tra ở máy chủ, hiển thị qua React; không chèn HTML do người viết gửi vào. Chặn URL script, thuộc tính HTML tùy ý, node không hỗ trợ và nội dung quá lớn. Đếm phần chữ thực khi kiểm tra điều kiện đăng bài. Bài văn bản cũ được chuyển sang cấu trúc editor khi mở.
+- Thêm vùng Bài viết mới ngay sau tổng quan hành trình: tối đa ba bài đã đăng, ảnh đại diện nếu có, tên bài, tác giả, ngày, mô tả ngắn và liên kết đọc. Có trạng thái trống, lỗi/tải lại và xem toàn bộ bài viết.
+- Đã kiểm tra bằng tài khoản admin thật trên preview: tạo nháp, định dạng đậm/tiêu đề/danh sách/link, lưu, tải lại và xem trước vẫn giữ nguyên. Editor không tự đánh dấu chưa lưu lúc khởi tạo hoặc sau khi lưu. Kiểm tra 360px: toolbar xuống dòng, không tràn ngang; bản nháp không xuất hiện trong vùng trang chủ. Dữ liệu thử được dọn sau kiểm tra.

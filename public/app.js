@@ -141,7 +141,7 @@ function clearMedia() {
 
 function updateReadingPosition() {
   const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header')) + (window.innerWidth <= 940 ? 110 : 70);
-  const sections = ['gioi-thieu', 'hanh-trinh', 'tu-lieu', 'lam-theo-bac'];
+  const sections = ['gioi-thieu', 'bai-viet-moi', 'hanh-trinh', 'tu-lieu', 'lam-theo-bac'];
   let current = sections[0];
   sections.forEach(id => { if (document.getElementById(id).getBoundingClientRect().top <= offset) current = id; });
   $$('.main-nav a').forEach(link => {
@@ -281,4 +281,30 @@ async function init() {
   }
 }
 
+async function loadHomePosts() {
+  const grid = $('#home-posts'), status = $('#home-posts-status'), retry = $('#home-posts-retry');
+  if (!grid) return;
+  retry.hidden = true; grid.setAttribute('aria-busy', 'true'); status.hidden = false;
+  status.textContent = 'Đang tải bài viết…';
+  try {
+    const response = await fetch('/api/cms/posts', { signal: AbortSignal.timeout(15000) });
+    if (!response.ok) throw new Error('Posts unavailable');
+    const result = await response.json();
+    if (!Array.isArray(result.posts)) throw new Error('Invalid posts');
+    const posts = result.posts.slice(0, 3);
+    grid.innerHTML = posts.map(post => {
+      const href = `/bai-viet/${encodeURIComponent(post.slug)}`;
+      const date = new Date(post.published_at);
+      const dateText = Number.isNaN(date.getTime()) ? '' : date.toLocaleDateString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
+      return `<article class="home-post">${post.cover_path ? `<a class="home-post-image" href="${href}" tabindex="-1" aria-hidden="true"><img src="/api/cms/media/${encodeURIComponent(post.id)}" alt="" loading="lazy" decoding="async"></a>` : ''}<p class="home-post-meta">${escape(post.author_name)}${dateText ? ` · <time datetime="${escape(date.toISOString())}">${dateText}</time>` : ''}</p><h3><a href="${href}">${escape(post.title)}</a></h3>${post.summary ? `<p class="home-post-summary">${escape(post.summary)}</p>` : ''}<a class="home-post-read" href="${href}" aria-label="Đọc bài: ${escape(post.title)}">Đọc bài <span aria-hidden="true">→</span></a></article>`;
+    }).join('');
+    status.textContent = posts.length ? '' : 'Chưa có bài viết mới. Các bài được đăng sẽ xuất hiện tại đây.';
+    status.hidden = posts.length > 0;
+  } catch {
+    status.textContent = 'Chưa tải được bài viết. Bạn có thể thử lại hoặc xem tất cả bài viết.';
+    retry.hidden = false;
+  } finally { grid.setAttribute('aria-busy', 'false'); }
+}
+$('#home-posts-retry')?.addEventListener('click', loadHomePosts);
 init();
+loadHomePosts();
