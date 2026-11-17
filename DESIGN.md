@@ -25,3 +25,7 @@ Header có menu thu gọn, ảnh hero chuyển xuống dưới tiêu đề. Time
 
 - `dist/assets/lotus-red.png`: “Generate a refined transparent-background raster lotus logo based closely on the supplied reference. One centered symmetric overlapping lotus outline flower, compact wide silhouette, clean uniform thin lines, flat crimson #A5232B. No text, divider lines, badge, shadow, texture or background.”
 - `dist/assets/lotus-gold.png`: “Edit the generated red lotus. Preserve its exact geometry, composition and true transparency. Change visible strokes to flat antique gold #B18023. Clean uniform lines, no red pixels, speckles, added elements, divider lines or text.”
+
+## Logo chính thức của trường
+
+Sau khi người dùng cung cấp logo Trường Tiểu học Gia Lâm, đầu trang, chân trang và favicon chuyển sang dùng `dist/assets/gia-lam-logo.png`. Đây là bản sao nguyên ảnh được cung cấp, giữ đúng màu gốc; không tạo lại bằng AI. Hoa sen vàng tiếp tục dùng làm họa tiết trang trí giữa các phần.

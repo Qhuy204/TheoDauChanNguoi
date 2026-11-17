@@ -45,7 +45,7 @@ Phim được phát từ địa chỉ do hochiminh.vn công bố, không sao ch�
 
 Năm tranh minh họa AI nằm trong `dist/assets/`: `hero.webp`, `harbor.webp`, `village.webp`, `learning.webp`, `activities.webp`. Đây là minh họa, không phải chứng cứ lịch sử hoặc ảnh hoạt động của trường. Xem `DESIGN.md` để biết hướng tạo tranh và tham chiếu bố cục.
 
-Biểu tượng hoa sen đã thay bằng ảnh PNG nền trong suốt: `lotus-red.png` dùng ở đầu/cuối trang và favicon; `lotus-gold.png` dùng ở các điểm chia phần. Phần giới thiệu hoạt động mang tên Trường Tiểu học Gia Lâm, không liên kết sang trường khác.
+Logo chính thức do người dùng cung cấp nằm tại `dist/assets/gia-lam-logo.png`, dùng ở đầu trang, cuối trang và favicon. Ảnh được giữ nguyên màu sắc và nội dung. `lotus-gold.png` là hoa sen trang trí ở các điểm chia phần. Phần giới thiệu hoạt động mang tên Trường Tiểu học Gia Lâm, không liên kết sang trường khác.
 
 ## Cấu trúc và triển khai
 
@@ -54,4 +54,4 @@ Biểu tượng hoa sen đã thay bằng ảnh PNG nền trong suốt: `lotus-re
 - `scripts/check.mjs`: kiểm tra nội dung và tệp trước khi xuất bản.
 - `.openai/hosting.json`: mã dự án Sites và thư mục xuất bản.
 
-Không có bước build. Upload toàn bộ nội dung `dist/` cho hosting tĩnh, hoặc sử dụng quy trình Sites đã liên kết. Giữ nguyên `project_id` khi xuất bản phiên bản tiếp theo. Bản Sites ban đầu giữ chế độ riêng tư.
+Không có bước build. Upload toàn bộ nội dung `dist/` cho hosting tĩnh, hoặc sử dụng quy trình Sites đã liên kết. Giữ nguyên `project_id` khi xuất bản phiên bản tiếp theo. Website hiện mở công khai theo yêu cầu của người dùng tại https://sang-mai-ten-nguoi-gia-lam.bblvn-2650.chatgpt.site/.

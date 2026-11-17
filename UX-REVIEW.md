@@ -35,3 +35,10 @@ Website chưa có ảnh hoạt động thực tế của Trường Tiểu học 
 - Viết lại đủ 7 câu chuyện, mỗi chuyện 5 đoạn, khoảng 250–280 từ theo cách đếm khoảng trắng; bổ sung diễn biến cụ thể và đối chiếu nguồn.
 - Thay tham chiếu Trường Tiểu học Khương Mai bằng nội dung dành cho Trường Tiểu học Gia Lâm; không dùng ảnh hoặc hoạt động của trường khác để gắn tên Gia Lâm.
 - Thay toàn bộ hoa sen đang dùng trong giao diện và favicon bằng hai ảnh PNG tạo theo ảnh tham chiếu.
+
+## Rà soát căn chỉnh với subagent
+
+- Khối năm và chức danh ở hero bị đặt tuyệt đối trên vùng đệm thấp hơn chiều cao thật của chữ, làm dòng cuối chạm ảnh. Chuyển khối chữ về luồng bố cục bình thường; đo được khoảng cách 18px ở 1366px và 16px ở 768px.
+- Logo chính thức của Gia Lâm được giữ nguyên ảnh gốc, hiển thị vuông 76px trên desktop/tablet và 52px trên điện thoại. Bỏ bộ lọc đảo màu của logo cũ ở footer; giá trị kiểm tra là `filter: none`.
+- Logo mới khiến tên website xuống hai dòng trên điện thoại, làm header thực tế cao 106px trong khi các thanh dính dùng mốc 89px. Điều chỉnh cỡ chữ tên website và khoảng cách logo/chữ; đo lại tại 360px cho kết quả header 89px, tên trên một dòng, cách menu 10px.
+- Đã đối chiếu `scrollWidth` và `clientWidth`: 1351/1351 ở viewport 1366px, 753/753 ở 768px, 345/345 ở 360px; không có tràn ngang. Subagent sửa CSS và rà cascade; root thực hiện kiểm tra trình duyệt do IAB của subagent không khả dụng.
