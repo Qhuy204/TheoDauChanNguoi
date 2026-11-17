@@ -81,3 +81,11 @@ Website chưa có ảnh hoạt động thực tế của Trường Tiểu học 
 - Trang chủ, bài viết, đăng nhập và quản lý dùng chung `public/header.css`: cùng logo, dòng đơn vị, chiều cao, chiều rộng, đường kẻ vàng và menu Giới thiệu/Hành trình/Tư liệu/Làm theo Bác/Bài viết. Giữ chỗ thanh cuộn để header không dịch ngang giữa trang dài và trang ngắn.
 - Nút Đăng nhập nền đỏ nằm ngoài menu thu gọn, luôn hiện trên điện thoại. Menu có trạng thái mở/đóng, Escape trả focus về nút, liên kết đóng menu khi chọn.
 - Đã kiểm tra màn hình 360 px và 1366 px: logo và chữ có cùng kích thước giữa trang chủ/bài viết, nút đăng nhập dẫn tới đúng trang, menu dùng được và không tràn ngang. Typecheck và kiểm tra nội dung đạt.
+
+## Rà lỗi phiên đăng nhập và biên tập
+
+- Header lấy trạng thái phiên thực, hiện Quản lý sau đăng nhập; đăng xuất, chuyển tab và quay lại bằng lịch sử cập nhật lại trạng thái. Trang đã đăng nhập tự rời form login, vào Nội dung website. Header/trang quản lý gộp truy vấn phiên, không cache công khai hay lưu token vào trình duyệt ngoài cookie HttpOnly.
+- Trang chủ có lối Thêm, sửa hành trình/Tư liệu/Việc làm dành cho giáo viên/admin; mở đúng nhóm thay vì chỉ dẫn tới quản lý bài viết. Menu hoạt động độc lập ngay cả khi kho nội dung tải chậm hoặc lỗi.
+- Sửa lỗi header sticky che nút lưu/xuất bản và toolbar khi cuộn. Đã xác nhận bằng hit-test DOM và thao tác bấm: thanh công cụ nằm dưới header.
+- Cho phép lưu bản nháp phim/nguồn mới chưa có đường dẫn, vẫn chặn xuất bản thiếu thông tin và URL nguy hiểm. Chặn xóa mục còn được tham chiếu với thông báo cụ thể. Chuẩn hóa số trang về số nguyên hữu hạn và trả 400 khi JSON đầu vào không phải object.
+- Thử trên preview bằng tài khoản thật: thêm/sửa/lưu chặng, thêm/sửa/lưu câu chuyện, tải lại giữ nội dung; thêm phim nháp chưa có URL, lưu thành công. Các mục thử đã xóa khỏi bản nháp; không xuất bản dữ liệu thử. Luồng đăng xuất/đăng nhập lại và header trang chủ đạt. 34 kiểm tra tự động và typecheck đạt.

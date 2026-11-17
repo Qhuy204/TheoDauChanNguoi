@@ -6,7 +6,7 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "check": "node scripts/check.mjs && node --test tests/cms-api.test.mjs tests/rich-text.test.mjs tests/content-cache.test.mjs",
+    "check": "node scripts/check.mjs && node --test tests/cms-api.test.mjs tests/rich-text.test.mjs tests/content-cache.test.mjs tests/session.test.mjs",
     "typecheck": "tsc --noEmit --incremental false",
     "install:ci": "node scripts/install-ci.mjs",
     "dev": "node scripts/run-framework.mjs dev",

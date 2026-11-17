@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {handleCms,validatePost,postSlug} from '../lib/cms-api.mjs';
+import {handleCms,validatePost,postSlug,pageNumber} from '../lib/cms-api.mjs';
 const env={NEXT_PUBLIC_SUPABASE_URL:'https://test.supabase.co',NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:'test-public-key'};
 const uid='11111111-1111-4111-8111-111111111111',other='22222222-2222-4222-8222-222222222222',pid='33333333-3333-4333-8333-333333333333';
 const profile={id:uid,display_name:'Test teacher',role:'teacher',active:true};
@@ -21,3 +21,6 @@ test('accounts without a profile cannot obtain a CMS session',async()=>{await mo
 test('refresh token rotation updates cookies',async()=>{await mock(async(url)=>url.includes('grant_type=refresh_token')?response({access_token:'new-access',refresh_token:'new-refresh',user:{id:uid,email:'teacher@example.test'}}):url.endsWith('/auth/v1/user')?response({},401):auth(url),async()=>{const r=await handleCms(request('session','GET',null,{cookie:'cms-access=expired; cms-refresh=refresh'}),env);assert.equal(r.status,200);assert.equal(r.headers.getSetCookie().length,2);assert(!(await r.text()).includes('new-access'));});});
 test('HTML disguised as a photo is rejected',async()=>{await mock(async(url)=>url.includes('/cms_posts?')?response([post]):auth(url),async()=>assert.equal((await handleCms(new Request('https://school.test/api/cms/manage/'+pid+'/image',{method:'POST',headers:{Origin:'https://school.test','X-Requested-With':'cms',cookie:'cms-access=verified','Content-Type':'image/png'},body:'<script>alert(1)</script>'}),env)).status,400));});
 test('logout clears both cookies',async()=>{await mock(async()=>response({},401),async()=>{const r=await handleCms(request('logout','POST',null,{cookie:'cms-access=old'}),env);assert.equal(r.status,200);assert(r.headers.getSetCookie().every(c=>c.includes('Max-Age=0')));});});
+
+test('pagination never sends fractional or non-finite offsets to Supabase',()=>{for(const [value,expected]of [['1.5',1],['2.9',2],['Infinity',1],['bad',1],['-5',1],['9999',1000]])assert.equal(pageNumber(value),expected);});
+test('malformed JSON values return a client error rather than a server failure',async()=>{for(const value of ['null','[]','1'])assert.equal((await handleCms(new Request('https://school.test/api/cms/login',{method:'POST',headers:{Origin:'https://school.test','X-Requested-With':'cms'},body:value}),env)).status,400);});

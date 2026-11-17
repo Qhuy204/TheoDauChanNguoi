@@ -1,5 +1,7 @@
 import { enhanceSelect, setSelectValue, isSelectOpen } from './custom-select.js';
 import {publicJSON} from './client-cache.js';
+import {startPublicHeader} from './header.js';
+startPublicHeader();
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -176,12 +178,6 @@ function updateReadingPosition() {
   scrollQueued = false;
 }
 
-function closeMenu() {
-  $('.menu-toggle').setAttribute('aria-expanded', 'false');
-  $('.menu-toggle').setAttribute('aria-label', 'Mở menu điều hướng');
-  $('.main-nav').classList.remove('is-open');
-}
-
 function goToStage(id) {
   const target = document.getElementById(id);
   if (!target || !data.stages.some(stage => stage.id === id)) return;
@@ -202,16 +198,7 @@ function attachEvents() {
     if (openButton) { const [type, id] = openButton.dataset.open.split(':'); openMedia(type, id, openButton); }
     const filterButton = event.target.closest('[data-filter]');
     if (filterButton) { filter = filterButton.dataset.filter; visibleCount = 6; renderLibrary(); }
-    if (event.target.closest('.main-nav a')) closeMenu();
-    if (!event.target.closest('.site-header')) closeMenu();
   });
-  $('.menu-toggle').addEventListener('click', () => {
-    const isOpen = $('.menu-toggle').getAttribute('aria-expanded') !== 'true';
-    $('.menu-toggle').setAttribute('aria-expanded', String(isOpen));
-    $('.menu-toggle').setAttribute('aria-label', isOpen ? 'Đóng menu điều hướng' : 'Mở menu điều hướng');
-    $('.main-nav').classList.toggle('is-open', isOpen);
-  });
-  document.addEventListener('keydown', event => { if (event.key === 'Escape' && !dialog.open) { const wasOpen = $('.main-nav').classList.contains('is-open'); closeMenu(); if (wasOpen) $('.menu-toggle').focus(); } });
   $('#stage-select').addEventListener('change', event => goToStage(event.target.value));
   const stepStage = direction => {
     const index = data.stages.findIndex(stage => stage.id === $('#stage-select').value);
@@ -259,7 +246,7 @@ function attachEvents() {
   dialog.addEventListener('click', event => { if (downOnBackdrop && event.target === dialog && outsideDialog(event)) closeMedia(); downOnBackdrop = false; });
   $('#footer-source-link').addEventListener('click', () => { $('#source-details').open = true; });
   addEventListener('scroll', () => { if (!scrollQueued) { requestAnimationFrame(updateReadingPosition); scrollQueued = true; } }, { passive: true });
-  addEventListener('resize', () => { if (innerWidth > 940) closeMenu(); updateReadingPosition(); });
+  addEventListener('resize', updateReadingPosition);
   // A broken remote/local image keeps its accessible description visible.
   document.addEventListener('error', event => { if (event.target instanceof HTMLImageElement) event.target.classList.add('image-failed'); }, true);
 }

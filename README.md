@@ -27,7 +27,11 @@ npm run build
 
 Preview: http://127.0.0.1:5173. npm start xem bản build bằng Wrangler. Server tĩnh không chạy phần đăng nhập/quản lý.
 
-npm run check kiểm tra nội dung gốc và 27 trường hợp API/định dạng/cache: quyền truy cập, cookie, CSRF, xung đột phiên bản, ảnh, lưu định dạng, tương thích bài cũ, liên kết nội dung và nội dung không an toàn. tests/cms-rls.sql kiểm tra RLS, slug, liên kết ảnh và xuất bản trong transaction rollback, không giữ dữ liệu thử.
+npm run check kiểm tra nội dung gốc và 34 trường hợp API/định dạng/cache/session: quyền truy cập, cookie, CSRF, xung đột phiên bản, ảnh, lưu định dạng, tương thích bài cũ, liên kết nội dung và nội dung không an toàn. tests/cms-rls.sql kiểm tra RLS, slug, liên kết ảnh và xuất bản trong transaction rollback, không giữ dữ liệu thử.
+
+Header kiểm tra phiên qua API private/no-store, dùng chung một yêu cầu với trang quản lý và giữ trạng thái trong bộ nhớ tối đa 60 giây. Sau đăng nhập nút đổi thành Quản lý, dẫn tới nội dung website; sau đăng xuất trở về Đăng nhập. Login/logout phát tín hiệu sang tab khác; quay lại tab hoặc khôi phục từ lịch sử kiểm tra lại phiên. Không lưu token hoặc hồ sơ trong localStorage. Giáo viên đang đăng nhập có lối sửa trực tiếp tại các phần trang chủ; `?muc=stages`, `?muc=images`, `?muc=activities` mở đúng nhóm biên tập.
+
+Bản nháp nội dung cho phép tạm để trống tiêu đề/liên kết, nhưng vẫn kiểm tra định dạng và tham chiếu. Xuất bản kiểm tra đầy đủ các trường bắt buộc. Không xóa ảnh/chặng/câu chuyện/nguồn còn đang được tham chiếu; giao diện chỉ rõ nơi cần đổi liên kết trước.
 
 ## Bộ nhớ đệm
 

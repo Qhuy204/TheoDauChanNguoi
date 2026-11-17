@@ -2,11 +2,10 @@
 import {useEffect,useRef,useState} from 'react';
 import {ArticleBody} from './article-body';
 import {RichTextEditor} from './rich-text-editor';
-import {notifyPublicChange} from '../lib/client-cms';
+import {notifyPublicChange,cmsApi as api} from '../lib/client-cms';
 type Post={id?:string;title:string;slug:string;summary:string;body:string;status:string;cover_path?:string|null;cover_alt:string;author_name?:string;updated_at?:string};
 type Member={id:string;display_name:string;role:string;active:boolean};
 const blank=():Post=>({title:'',slug:'',summary:'',body:'',status:'draft',cover_alt:''});
-async function api(path:string,options:RequestInit={}):Promise<any>{const r=await fetch('/api/cms/'+path,{...options,headers:{'X-Requested-With':'cms',...(options.body&&typeof options.body==='string'?{'Content-Type':'application/json'}:{}),...options.headers}});const v:any=await r.json();if(r.status===401){location.assign('/dang-nhap');throw new Error('Vui lòng đăng nhập lại.');}if(!r.ok)throw new Error(v.error||'Chưa hoàn thành được thao tác.');return v;}
 export function PostManager(){
   const [user,setUser]=useState<Member|null>(null),[email,setEmail]=useState(''),[loading,setLoading]=useState(true),[posts,setPosts]=useState<Post[]>([]),[current,setCurrent]=useState<Post|null>(null),[page,setPage]=useState(1),[more,setMore]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState(''),[message,setMessage]=useState(''),[dirty,setDirty]=useState(false),[preview,setPreview]=useState(false),[members,setMembers]=useState<Member[]|null>(null),[uploading,setUploading]=useState(false);
   const heading=useRef<HTMLHeadingElement>(null);
