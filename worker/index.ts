@@ -5,7 +5,7 @@ import type { ConnectorBinding } from "../lib/connector-contract.mjs";
 
 const worker = {
   fetch(request: Request, env: Cloudflare.Env, ctx: ExecutionContext<{ CONNECTORS?: ConnectorBinding }>) {
-    if (new URL(request.url).pathname.startsWith('/api/cms/')) return handleCms(request, env);
+    if (new URL(request.url).pathname.startsWith('/api/cms/')) return handleCms(request, env, ctx);
     let binding = ctx.props?.CONNECTORS;
     // Local preview emulates the same request-scoped capability. This branch and
     // the auxiliary service binding are absent from production builds.

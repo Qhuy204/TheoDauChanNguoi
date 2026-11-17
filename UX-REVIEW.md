@@ -68,3 +68,10 @@ Website chưa có ảnh hoạt động thực tế của Trường Tiểu học 
 - Dùng cấu trúc JSON được kiểm tra ở máy chủ, hiển thị qua React; không chèn HTML do người viết gửi vào. Chặn URL script, thuộc tính HTML tùy ý, node không hỗ trợ và nội dung quá lớn. Đếm phần chữ thực khi kiểm tra điều kiện đăng bài. Bài văn bản cũ được chuyển sang cấu trúc editor khi mở.
 - Thêm vùng Bài viết mới ngay sau tổng quan hành trình: tối đa ba bài đã đăng, ảnh đại diện nếu có, tên bài, tác giả, ngày, mô tả ngắn và liên kết đọc. Có trạng thái trống, lỗi/tải lại và xem toàn bộ bài viết.
 - Đã kiểm tra bằng tài khoản admin thật trên preview: tạo nháp, định dạng đậm/tiêu đề/danh sách/link, lưu, tải lại và xem trước vẫn giữ nguyên. Editor không tự đánh dấu chưa lưu lúc khởi tạo hoặc sau khi lưu. Kiểm tra 360px: toolbar xuống dòng, không tràn ngang; bản nháp không xuất hiện trong vùng trang chủ. Dữ liệu thử được dọn sau kiểm tra.
+
+## Biên tập nội dung website và ảnh trong bài
+
+- `/noi-dung` có các nhóm Giới thiệu, Hành trình, Kho ảnh, Câu chuyện, Thước phim, Làm theo Bác và Nguồn tham khảo. Nội dung đọc từ Supabase; có thêm/xóa/sắp xếp, chọn ảnh từ kho hoặc tải từ máy, lưu nháp và xuất bản riêng. Không gọi API theo mỗi lần gõ.
+- `/quan-ly` dùng bố cục soạn báo với tiêu đề lớn, đoạn mở đầu và phần nội dung rộng. Bỏ trường đường dẫn và vùng ảnh đại diện; server tự tạo slug, giữ đường dẫn khi sửa. Nút Thêm ảnh chèn figure ngay tại con trỏ, có chú thích và hoàn tác. Ảnh đầu bài tự dùng ở danh sách.
+- Đã tải ảnh thật trong editor, sửa chú thích, lưu nháp, tải lại và xem trước thành công. Kiểm tra quyền và xung đột tại cả API lẫn Supabase RLS. Nội dung nháp thử được khôi phục; phép thử xuất bản chỉ dùng nội dung và liên kết ảnh giống hệt bản gốc đã duyệt.
+- Nội dung công khai có cache client, gộp yêu cầu, ETag/304 và cache Worker; phần quản lý/nháp không cache. Các thiết bị khác có thể thấy bản cũ trong thời hạn cache được ghi trong README.

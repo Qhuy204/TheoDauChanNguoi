@@ -1,9 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {encodeDoc,readBodyDoc,docText,safeLink,RICH_PREFIX,normalizeBody} from '../lib/rich-text.mjs';
+import {encodeDoc,readBodyDoc,docText,safeLink,RICH_PREFIX,normalizeBody,bodyAssets} from '../lib/rich-text.mjs';
 import {validatePost} from '../lib/cms-api.mjs';
 const text=(value,marks=[])=>({type:'text',text:value,marks});
 const paragraph=(value,marks)=>({type:'paragraph',content:[text(value,marks)]});
+test('inline figures preserve uploaded asset IDs and captions but cannot embed external image URLs',()=>{
+ const id='11111111-1111-4111-8111-111111111111';
+ const image={type:'image',attrs:{assetId:id,src:'https://evil.test/image.jpg',alt:'Mô tả ảnh',caption:'Chú thích ảnh',onclick:'bad'}};
+ const body=encodeDoc({type:'doc',content:[paragraph('Một đoạn văn'),image,image]});
+ assert.deepEqual(bodyAssets(body),[id]);
+ assert.deepEqual(readBodyDoc(body).content[1].attrs,{assetId:id,src:'/api/cms/assets/'+id,alt:'Mô tả ảnh',caption:'Chú thích ảnh'});
+ for(const src of ['data:image/png;base64,AAAA','https://evil.test/photo.jpg'])assert.throws(()=>encodeDoc({type:'doc',content:[{type:'image',attrs:{src}}]}));
+});
 test('formatted documents survive save/reload with headings, lists, links and marks',()=>{
  const original={type:'doc',content:[{type:'heading',attrs:{level:2},content:[text('Hoạt động của trường')]},paragraph('Đọc sách cùng bạn',[{type:'bold'},{type:'italic'},{type:'underline'}]),{type:'orderedList',attrs:{start:3},content:[{type:'listItem',content:[paragraph('Giữ gìn sách vở')]}]},paragraph('Tư liệu',[{type:'link',attrs:{href:'https://hochiminh.vn/'}}])]};
  const saved=encodeDoc(original),doc=readBodyDoc(saved);

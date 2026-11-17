@@ -1,6 +1,6 @@
 import {Fragment,type ReactNode} from 'react';
 import {readBodyDoc} from '../lib/rich-text.mjs';
-type Node={type:string;text?:string;attrs?:{href?:string;level?:number;start?:number};marks?:{type:string;attrs?:{href?:string}}[];content?:Node[]};
+type Node={type:string;text?:string;attrs?:{href?:string;level?:number;start?:number;src?:string;alt?:string;caption?:string};marks?:{type:string;attrs?:{href?:string}}[];content?:Node[]};
 function render(node:Node,key:number):ReactNode {
   const children=node.content?.map(render);
   switch(node.type){
@@ -12,6 +12,7 @@ function render(node:Node,key:number):ReactNode {
       if(mark.type==='link') value=<a key={i} href={mark.attrs?.href} target={mark.attrs?.href?.startsWith('/')?undefined:'_blank'} rel="noopener noreferrer">{value}</a>;
     }return <Fragment key={key}>{value}</Fragment>;}
     case 'hardBreak': return <br key={key}/>;
+    case 'image': return <figure className="inline-article-image" key={key}><img src={node.attrs?.src} alt={node.attrs?.alt||node.attrs?.caption||'Ảnh trong bài viết'} loading="lazy"/>{node.attrs?.caption&&<figcaption>{node.attrs.caption}</figcaption>}</figure>;
     case 'paragraph': return <p key={key}>{children?.length?children:<br/>}</p>;
     case 'heading': return node.attrs?.level===3?<h3 key={key}>{children}</h3>:<h2 key={key}>{children}</h2>;
     case 'bulletList': return <ul key={key}>{children}</ul>;

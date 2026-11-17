@@ -1,4 +1,5 @@
 import { enhanceSelect, setSelectValue, isSelectOpen } from './custom-select.js';
+import {publicJSON} from './client-cache.js';
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -8,7 +9,7 @@ const safeUrl = value => {
   try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? escape(url.href) : '#'; }
   catch { return '#'; }
 };
-const asset = value => /^assets\/[a-zA-Z0-9._/-]+$/.test(value || '') && !value.includes('..') ? escape(value) : 'assets/lotus.svg';
+const asset = value => /^(?:\/)?assets\/[a-zA-Z0-9._/-]+$/.test(value || '') && !value.includes('..') || /^\/api\/cms\/assets\/[0-9a-f-]{36}$/i.test(value||'') ? escape(value) : 'assets/lotus.svg';
 const external = (url, label) => `<a href="${safeUrl(url)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(label)} (mở trong thẻ mới)">${escape(label)}</a>`;
 
 let data;
@@ -33,9 +34,21 @@ function renderSite() {
   $('#hero-intro').textContent = data.site.intro;
   $('#hero-image').src = data.site.heroImage;
   $('#activity-image').src = data.site.activityImage;
+  for(const [selector,src]of [['#hero-image',data.site.heroImage],['#activity-image',data.site.activityImage]]){const image=Object.values(data.images).find(img=>img.src===src);if(image)$(selector).alt=image.alt||image.title;}
   document.title = `${data.site.title} · ${data.site.subtitle}`;
   $('#activity-school-name').textContent = data.site.schoolName;
+  $('.hero h1').textContent=data.site.title;
+  $('.hero-subtitle').textContent=data.site.subtitle;
+  $('.sidebar-label').textContent=`${data.stages.length} chặng đường lịch sử`;
+  $('.journey').setAttribute('aria-label',`${data.stages.length} chặng đường lịch sử`);
+  const labelTargets={heroEyebrow:'.hero .eyebrow',heroImageCaption:'.hero-art figcaption',overviewTitle:'#journey-overview-title',overviewEyebrow:'.overview-heading .eyebrow',overviewPrompt:'.overview-heading>p',libraryTitle:'#library-title',libraryEyebrow:'.library-section .eyebrow',libraryIntro:'.section-heading p:last-child',activitiesTitle:'#activities-title',activitiesEyebrow:'.activities-heading .eyebrow',activitiesIntro:'.activities-heading>p:last-child',postsTitle:'#home-posts-title',postsEyebrow:'.home-posts-heading .eyebrow',postsIntro:'.home-posts-heading>div>p:last-child',activityAlbumCaption:'.activity-album figcaption',activityExampleText:'.activity-example>span:last-child>span'};
+  for(const [key,selector]of Object.entries(labelTargets)){const el=$(selector);if(el&&data.site.labels?.[key]!==undefined)el.textContent=data.site.labels[key];}
+  $('.hero-years strong').textContent=data.site.lifespan||'1890 – 1969';$('.hero-years span').textContent=data.site.personCaption||'Chủ tịch Hồ Chí Minh';
+  $('.hero-dates').textContent=`${data.site.lifespan||'1890 – 1969'} · ${data.stages.length} chặng đường lịch sử`;
+  if(data.site.logoImage)$$('img.brand-mark').forEach(img=>{img.src=asset(data.site.logoImage);});
 
+  $('#overview-timeline').style.setProperty('--stage-count',data.stages.length);
+  $('#overview-timeline').style.setProperty('--timeline-length',`${Math.max(0,data.stages.length-1)*112}px`);
   $('#overview-timeline').innerHTML = data.stages.map(stage => `<a class="overview-stop" href="#${escape(stage.id)}"><span>${escape(stage.years.replaceAll(' ', ''))}</span><small>${escape(stage.shortTitle)}</small></a>`).join('');
   $('#stage-navigation').innerHTML = data.stages.map((stage, i) => `<a href="#${escape(stage.id)}" class="stage-link${i === 0 ? ' is-active' : ''}"${i === 0 ? ' aria-current="location"' : ''}><strong>${escape(stage.years)}</strong><span>${escape(stage.title)}</span></a>`).join('');
   const options = data.stages.map(stage => `<option value="${escape(stage.id)}">${escape(stage.years)} · ${escape(stage.title)}</option>`).join('');
@@ -44,7 +57,7 @@ function renderSite() {
   $('#chapters').innerHTML = data.stages.map(renderChapter).join('');
   $('#chapters').setAttribute('aria-busy', 'false');
   $('#activity-actions').innerHTML = data.activities.map((activity, i) => `<details class="activity-action"${i === 0 ? ' open' : ''}><summary>${icon(activity.icon)}<h3>${escape(activity.title)}</h3><svg class="icon activity-plus" aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="activity-detail"><p>${escape(activity.text)}</p><ul>${activity.actions.map(action => `<li>${escape(action)}</li>`).join('')}</ul></div></details>`).join('');
-  $('#source-list').innerHTML = `<ul>${Object.values(data.sources).map(source => `<li>${external(source.url, source.name)}</li>`).join('')}<li>${external('https://hochiminh.vn/tu-lieu-video', 'Kho phim tư liệu · hochiminh.vn')}</li></ul>`;
+  $('#source-list').innerHTML = `<ul>${Object.values(data.sources).map(source => `<li>${external(source.url, source.name)}</li>`).join('')}</ul>`;
   $('#image-credits').innerHTML = Object.values(data.images).filter(image => image.url).map(image => `<div class="image-credit"><strong>${escape(image.title)}</strong><p>${escape(image.credit)}</p>${external(image.url, 'Nguồn ảnh')}${image.licenseUrl ? ` · ${external(image.licenseUrl, 'Giấy phép')}` : ''}</div>`).join('');
 }
 
@@ -52,34 +65,31 @@ function renderChapter(stage, i) {
   const image = data.images[stage.image];
   const next = data.stages[i + 1];
   return `<article id="${escape(stage.id)}" class="chapter" aria-labelledby="heading-${escape(stage.id)}" tabindex="-1">
-    <div class="chapter-topline"><span class="chapter-number">Chặng ${i + 1} / 7</span><span class="chapter-place">${icon('pin')}${escape(stage.place)}</span></div>
+    <div class="chapter-topline"><span class="chapter-number">Chặng ${i + 1} / ${data.stages.length}</span><span class="chapter-place">${icon('pin')}${escape(stage.place)}</span></div>
     <h2 id="heading-${escape(stage.id)}">${escape(stage.title)}</h2><p class="chapter-years">${escape(stage.years)}</p>
     <p class="chapter-intro">${escape(stage.intro)}</p>
-    <div class="chapter-body"><div><figure class="chapter-figure"><button class="image-open${stage.image === 'portrait' ? ' contain' : ''}" data-open="image:${escape(stage.image)}" aria-label="Phóng lớn: ${escape(image.title)}">${imageMarkup(image)}<span class="image-zoom">${icon('plus')}</span></button><figcaption>${escape(image.caption)}</figcaption></figure><button class="text-link chapter-story-link" data-open="story:${escape(stage.storyId)}">Đọc câu chuyện ${icon('arrow')}</button></div>
+    <div class="chapter-body${stage.events.length ? '' : ' no-events'}"><div><figure class="chapter-figure"><button class="image-open${stage.image === 'portrait' ? ' contain' : ''}" data-open="image:${escape(stage.image)}" aria-label="Phóng lớn: ${escape(image.title)}">${imageMarkup(image)}<span class="image-zoom">${icon('plus')}</span></button><figcaption>${escape(image.caption)}</figcaption></figure>${stage.storyId ? `<button class="text-link chapter-story-link" data-open="story:${escape(stage.storyId)}">Đọc câu chuyện ${icon('arrow')}</button>` : ''}</div>
     <ol class="events">${stage.events.map(event => `<li class="event"><p class="event-date">${escape(event.date)}</p><h3>${escape(event.title)}</h3><p>${escape(event.text)}</p></li>`).join('')}</ol></div>
-    <p class="vocabulary"><strong>Em hiểu thêm · ${escape(stage.word.term)}:</strong> ${escape(stage.word.meaning)}</p>
-    <div class="lesson">${icon('book')}<div><h3>Cùng trao đổi</h3><p>${escape(stage.lesson)}</p></div></div>
+    ${stage.word.term || stage.word.meaning ? `<p class="vocabulary"><strong>Em hiểu thêm · ${escape(stage.word.term)}:</strong> ${escape(stage.word.meaning)}</p>` : ''}
+    ${stage.lesson ? `<div class="lesson">${icon('book')}<div><h3>Cùng trao đổi</h3><p>${escape(stage.lesson)}</p></div></div>` : ''}
     <div class="chapter-bottom"><a class="next-chapter" href="${next ? `#${escape(next.id)}` : '#tu-lieu'}">${next ? `Chặng ${i + 2}: ${escape(next.years)}` : 'Cùng khám phá kho tư liệu'} →</a></div>
   </article>`;
 }
 
 function prepareMedia() {
-  const imageStages = { village: 'tuoi-tho', harbor: 'ra-di', tours: 'con-duong', learning: 'gian-nan', pacbo: 've-nuoc', portrait: 'khang-chien', children: 'thong-nhat' };
-  const images = Object.entries(data.images).map(([id, image]) => ({ ...image, id, type: 'image', stage: imageStages[id], image: id }));
+  const images = Object.entries(data.images).map(([id, image]) => ({ ...image, id, type: 'image', stage:image.stage||data.stages.find(stage=>stage.image===id)?.id||'all', image: id }));
   const stories = data.stories.map(story => ({ ...story, type: 'story' }));
   const videos = data.videos.map(video => ({ ...video, type: 'video' }));
-  // An editorial opening row, followed by every available resource exactly once.
-  const all = [...images, ...stories, ...videos];
-  const opening = ['village', 'chuyen-con-duong', 'pacbo', 'tours', 'children', 'phim-tro-ve'];
-  media = [...opening.map(id => all.find(item => item.id === id)), ...all.filter(item => !opening.includes(item.id))];
+  const order=id=>{const index=data.stages.findIndex(s=>s.id===id);return index<0?data.stages.length:index;};
+  media = [...images,...stories,...videos].sort((a,b)=>order(a.stage)-order(b.stage));
 }
 
 function renderLibrary() {
-  const showFeature = filter === 'all' && stageFilter === 'all';
+  const showFeature = filter === 'all' && stageFilter === 'all' && data.videos.length>0;
   const film = data.videos[0];
-  const image = data.images[film.image];
+  const image = film?data.images[film.image]:null;
   $('#featured-film').innerHTML = showFeature ? `<div class="featured-film"><button class="featured-thumbnail portrait-bg" data-open="video:${escape(film.id)}" aria-label="Xem phim: ${escape(film.title)}">${imageMarkup(image)}<span class="play-button">${icon('play')}</span></button><div class="featured-copy"><p class="eyebrow">Thước phim nổi bật</p><h3>${escape(film.shortTitle)}</h3><p>${escape(film.description)}</p><button class="button button-primary" data-open="video:${escape(film.id)}">Xem thước phim ${icon('play')}</button></div></div>` : '';
-  const matching = media.filter(item => (filter === 'all' || item.type === filter) && (stageFilter === 'all' || item.stage === stageFilter || item.stage === 'all') && !(showFeature && item.id === film.id));
+  const matching = media.filter(item => (filter === 'all' || item.type === filter) && (stageFilter === 'all' || item.stage === stageFilter || item.stage === 'all') && !(showFeature && item.id === film?.id));
   $('#media-grid').innerHTML = matching.slice(0, visibleCount).map(renderMediaCard).join('');
   const visible = Math.min(visibleCount, matching.length);
   $('#result-count').textContent = matching.length ? `Đang xem ${visible} / ${matching.length} tư liệu${showFeature ? ' · cùng thước phim nổi bật' : ''}` : '';
@@ -261,9 +271,8 @@ function outsideDialog(event) {
 
 async function init() {
   try {
-    const response = await fetch('data/content.json');
-    if (!response.ok) throw new Error('Content unavailable');
-    data = await response.json();
+    const result = await publicJSON('/api/cms/site-content');
+    data = result.content;
     renderSite(); prepareMedia();
     enhanceSelect($('#stage-select')); enhanceSelect($('#library-stage'));
     renderLibrary(); attachEvents();
@@ -287,9 +296,7 @@ async function loadHomePosts() {
   retry.hidden = true; grid.setAttribute('aria-busy', 'true'); status.hidden = false;
   status.textContent = 'Đang tải bài viết…';
   try {
-    const response = await fetch('/api/cms/posts', { signal: AbortSignal.timeout(15000) });
-    if (!response.ok) throw new Error('Posts unavailable');
-    const result = await response.json();
+    const result = await publicJSON('/api/cms/posts');
     if (!Array.isArray(result.posts)) throw new Error('Invalid posts');
     const posts = result.posts.slice(0, 3);
     grid.innerHTML = posts.map(post => {
@@ -306,5 +313,8 @@ async function loadHomePosts() {
   } finally { grid.setAttribute('aria-busy', 'false'); }
 }
 $('#home-posts-retry')?.addEventListener('click', loadHomePosts);
+addEventListener('cms:public-updated',event=>{if(event.detail.path==='/api/cms/posts')loadHomePosts();else{$('#refresh-site-content').hidden=false;}});
+addEventListener('storage',event=>{if(event.key==='cms:invalidate'){$('#refresh-site-content').hidden=false;loadHomePosts();}});
+$('#refresh-site-content')?.addEventListener('click',()=>location.reload());
 init();
 loadHomePosts();
