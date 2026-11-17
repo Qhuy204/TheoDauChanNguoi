@@ -44,6 +44,7 @@ for (const name of assets) {
 for (const name of ['styles.css', 'app.js', 'assets/gia-lam-logo.png', 'assets/lotus-gold.png']) await stat(path.join(dist, name));
 for (const anchor of ['gioi-thieu', 'hanh-trinh', 'tu-lieu', 'lam-theo-bac', 'media-dialog', 'load-error']) assert(html.includes(`id="${anchor}"`));
 execFileSync(process.execPath, ['--check', path.join(dist, 'app.js')]);
+execFileSync(process.execPath, ['--check', path.join(dist, 'custom-select.js')]);
 execFileSync(process.execPath, ['--check', path.join(root, 'scripts/serve.mjs')]);
 assert(!/TODO|lorem ipsum|codex-preview/i.test(html));
 console.log(`PASS: 7 stages, 7 stories, ${data.videos.length} videos, ${assets.size} image assets, sources and JavaScript syntax.`);

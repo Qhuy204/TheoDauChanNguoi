@@ -1,3 +1,5 @@
+import { enhanceSelect, setSelectValue, isSelectOpen } from './custom-select.js';
+
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
@@ -154,8 +156,8 @@ function updateReadingPosition() {
     link.classList.toggle('is-active', active);
     if (active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
   });
-  // Do not change the select while the user is choosing an option.
-  if (document.activeElement !== $('#stage-select')) $('#stage-select').value = stage.id;
+  // Do not change the current choice while the listbox is being explored.
+  if (!isSelectOpen($('#stage-select'))) setSelectValue($('#stage-select'), stage.id);
   const stageIndex = data.stages.indexOf(stage);
   $('#previous-stage').disabled = stageIndex === 0;
   $('#next-stage').disabled = stageIndex === data.stages.length - 1;
@@ -176,7 +178,7 @@ function goToStage(id) {
   if (location.hash !== `#${id}`) history.pushState(null, '', `#${id}`);
   target.scrollIntoView({ behavior: 'instant', block: 'start' });
   target.focus({ preventScroll: true });
-  $('#stage-select').value = id;
+  setSelectValue($('#stage-select'), id);
   updateReadingPosition();
 }
 
@@ -225,7 +227,7 @@ function attachEvents() {
   });
   $('#reset-filters').addEventListener('click', () => {
     filter = 'all'; stageFilter = 'all'; visibleCount = 6;
-    $('#library-stage').value = 'all'; renderLibrary();
+    setSelectValue($('#library-stage'), 'all'); renderLibrary();
     $('[data-filter="all"]').focus({ preventScroll: true });
   });
   $('#dialog-close').addEventListener('click', closeMedia);
@@ -251,7 +253,9 @@ async function init() {
     const response = await fetch('data/content.json');
     if (!response.ok) throw new Error('Content unavailable');
     data = await response.json();
-    renderSite(); prepareMedia(); renderLibrary(); attachEvents();
+    renderSite(); prepareMedia();
+    enhanceSelect($('#stage-select')); enhanceSelect($('#library-stage'));
+    renderLibrary(); attachEvents();
     updateReadingPosition();
     if (location.hash) {
       const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));

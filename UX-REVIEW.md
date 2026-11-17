@@ -42,3 +42,9 @@ Website chưa có ảnh hoạt động thực tế của Trường Tiểu học 
 - Logo chính thức của Gia Lâm được giữ nguyên ảnh gốc, hiển thị vuông 76px trên desktop/tablet và 52px trên điện thoại. Bỏ bộ lọc đảo màu của logo cũ ở footer; giá trị kiểm tra là `filter: none`.
 - Logo mới khiến tên website xuống hai dòng trên điện thoại, làm header thực tế cao 106px trong khi các thanh dính dùng mốc 89px. Điều chỉnh cỡ chữ tên website và khoảng cách logo/chữ; đo lại tại 360px cho kết quả header 89px, tên trên một dòng, cách menu 10px.
 - Đã đối chiếu `scrollWidth` và `clientWidth`: 1351/1351 ở viewport 1366px, 753/753 ở 768px, 345/345 ở 360px; không có tràn ngang. Subagent sửa CSS và rà cascade; root thực hiện kiểm tra trình duyệt do IAB của subagent không khả dụng.
+
+## Dropdown theo giao diện website
+
+- Thay hai menu chọn giai đoạn bằng combobox tùy chỉnh: nền ngà, mũi tên đỏ, viền focus vàng và dấu chọn rõ ràng. Mỗi lựa chọn tách năm và tên chặng thành hai dòng để đọc được đầy đủ.
+- Menu hiển thị ngoài thanh dính để tránh bị cắt; tự mở lên hoặc xuống theo khoảng trống và giới hạn chiều rộng theo màn hình. Giữ select gốc làm nguồn giá trị và sự kiện cho điều hướng, bộ lọc và nút đặt lại.
+- Đã thử chọn bằng chuột, phím mũi tên, Home/End, Enter, Tab và Escape; điều hướng chặng trả focus về nội dung, bộ lọc cập nhật đúng danh sách. Escape giữ nguyên giá trị. Kiểm tra menu ở 360px và 1366px cho thấy không tràn ngang; đây chưa phải kiểm thử với trình đọc màn hình thực tế.
