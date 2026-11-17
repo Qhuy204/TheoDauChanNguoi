@@ -3,6 +3,9 @@
 html{scrollbar-gutter:stable}
 .staff-edit-link{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;color:#a5232b;font-family:'Be Vietnam Pro',system-ui,sans-serif;font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
 .staff-edit-link[hidden]{display:none}
+.school-header .school-login{min-width:136px}
+@media(max-width:700px){.school-header .school-login{min-width:94px}}
+@media(max-width:480px){.school-header .school-login{min-width:84px}}
 .school-header{position:sticky;top:0;z-index:30;background:rgba(255,252,245,.98);font-family:'Be Vietnam Pro',system-ui,sans-serif;color:#26312d}
 .school-header .school-header-inner{position:relative;width:min(1320px,calc(100% - 96px));min-height:112px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0;border-bottom:1px solid #d7ab48}
 .school-header .school-brand{display:flex;align-items:center;gap:17px;min-width:0;flex:0 1 410px;text-decoration:none}

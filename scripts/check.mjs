@@ -3,11 +3,13 @@ import { readFile, stat } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import {existsSync} from 'node:fs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const dist = path.join(root, 'public');
 const data = JSON.parse(await readFile(path.join(dist, 'data/content.json'), 'utf8'));
-const html = await readFile(path.join(dist, 'index.html'), 'utf8');
+const html = await readFile(path.join(root, 'app/home.html'), 'utf8');
+assert(!existsSync(path.join(dist,'index.html')),'The homepage must be rendered by its route; a public index.html would bypass initial login state.');
 const expected = ['1890 – 1911', '1911 – 1920', '1920 – 1930', '1930 – 1941', '1941 – 1945', '1945 – 1954', '1954 – 1969'];
 assert.deepEqual(data.stages.map(stage => stage.years), expected);
 assert.equal(new Set(data.stages.map(stage => stage.id)).size, 7);

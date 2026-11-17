@@ -1,12 +1,8 @@
-'use client';
-import {useEffect,useRef,useState} from 'react';
-import {watchSession} from '../public/auth-session.js';
-const navigation=[['/#gioi-thieu','Giới thiệu'],['/#hanh-trinh','Hành trình'],['/#tu-lieu','Tư liệu'],['/#lam-theo-bac','Làm theo Bác'],['/bai-viet','Bài viết']];
-export function SiteHeader({active=''}:{active?:string}) {
-  const [open,setOpen]=useState(false),toggle=useRef<HTMLButtonElement>(null);
-  const [session,setSession]=useState<any>(undefined);
-  useEffect(()=>watchSession(setSession),[]);
-  useEffect(()=>{if(!open)return;const close=(event:KeyboardEvent)=>{if(event.key==='Escape'){setOpen(false);toggle.current?.focus();}};document.addEventListener('keydown',close);return()=>document.removeEventListener('keydown',close);},[open]);
-  return <header className="school-header"><div className="school-header-inner"><a className="school-brand" href="/" aria-label="Chi bộ 2 – Đảng bộ Trường Tiểu học Gia Lâm – về đầu trang"><img src="/assets/gia-lam-logo.png" width="76" height="76" alt="Logo Trường Tiểu học Gia Lâm"/><span className="school-brand-copy">Chi bộ 2 – Đảng bộ Trường Tiểu học Gia Lâm</span></a><div className="school-header-actions"><nav id="school-navigation" className={'school-nav'+(open?' is-open':'')} aria-label="Điều hướng chính">{navigation.map(([href,label])=><a key={href} href={href} className={active==='posts'&&href==='/bai-viet'?'is-active':undefined} aria-current={active==='posts'&&href==='/bai-viet'?'page':undefined} onClick={()=>setOpen(false)}>{label}</a>)}</nav><a className="school-login" href={session?.user?"/noi-dung":"/dang-nhap"} aria-label={session?.user?"Quản lý nội dung website":session===undefined?"Tài khoản":"Đăng nhập"}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v16h-6M4 12h11m-4-4 4 4-4 4"/></svg><span>{session===undefined?"Tài khoản":session?.user?"Quản lý":"Đăng nhập"}</span></a><button ref={toggle} type="button" className="school-menu" aria-expanded={open} aria-controls="school-navigation" aria-label={open?'Đóng menu điều hướng':'Mở menu điều hướng'} onClick={()=>setOpen(!open)}><span/><span/><span/></button></div></div></header>;
+import {cookies} from 'next/headers';
+import {HeaderControls} from './header-controls';
+export async function SiteHeader({active=''}:{active?:string}){
+ const jar=await cookies();
+ const initialStatus=jar.get('cms-access')?.value||jar.get('cms-refresh')?.value?'authenticated':'anonymous';
+ return <HeaderControls active={active} initialStatus={initialStatus}/>;
 }
 export function SiteFooter(){return <footer className="cms-footer cms-wrap"><span>Chi bộ 2 – Đảng bộ Trường Tiểu học Gia Lâm</span><a href="/">Về trang hành trình →</a></footer>;}

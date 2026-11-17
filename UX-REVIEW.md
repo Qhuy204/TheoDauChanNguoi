@@ -89,3 +89,9 @@ Website chưa có ảnh hoạt động thực tế của Trường Tiểu học 
 - Sửa lỗi header sticky che nút lưu/xuất bản và toolbar khi cuộn. Đã xác nhận bằng hit-test DOM và thao tác bấm: thanh công cụ nằm dưới header.
 - Cho phép lưu bản nháp phim/nguồn mới chưa có đường dẫn, vẫn chặn xuất bản thiếu thông tin và URL nguy hiểm. Chặn xóa mục còn được tham chiếu với thông báo cụ thể. Chuẩn hóa số trang về số nguyên hữu hạn và trả 400 khi JSON đầu vào không phải object.
 - Thử trên preview bằng tài khoản thật: thêm/sửa/lưu chặng, thêm/sửa/lưu câu chuyện, tải lại giữ nội dung; thêm phim nháp chưa có URL, lưu thành công. Các mục thử đã xóa khỏi bản nháp; không xuất bản dữ liệu thử. Luồng đăng xuất/đăng nhập lại và header trang chủ đạt. 34 kiểm tra tự động và typecheck đạt.
+
+## Ổn định nhãn đăng nhập
+
+- Bỏ nhãn chờ Tài khoản. Header server truyền trạng thái hiển thị ban đầu; trang chủ chuyển mẫu HTML ra khỏi thư mục asset để không bỏ qua bước render này. Trang có phiên không được cache chung.
+- Store tách trạng thái authenticated/anonymous khỏi refreshing/error. Kiểm tra nền, focus và lỗi mạng giữ nguyên nhãn. Chỉ login, logout hoặc xác minh phiên hết hạn mới đổi nhãn; phản hồi cũ không thắng trạng thái mới. Không đổi trạng thái đăng nhập vì lỗi thiếu quyền của một thao tác riêng.
+- Đã thử chuyển trang chủ → bài viết → quản lý → tải lại trên preview: cả bốn lần đều hiện Quản lý từ đầu; đăng xuất đổi đúng một lần về Đăng nhập. HTML trả về trước khi chạy script đã có đúng nhãn. Thêm kiểm tra race, mạng lỗi, xác minh phiên và HTML ban đầu; tổng 38 kiểm tra và typecheck đạt.

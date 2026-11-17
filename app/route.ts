@@ -1,4 +1,3 @@
-import home from '../public/index.html?raw';
-export function GET() {
-  return new Response(home, { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=0, must-revalidate' } });
-}
+import home from './home.html?raw';
+import {homeWithAuthView} from '../lib/auth-view.mjs';
+export function GET(request:Request) {return homeWithAuthView(home,request);}

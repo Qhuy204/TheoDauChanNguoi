@@ -27,9 +27,13 @@ npm run build
 
 Preview: http://127.0.0.1:5173. npm start xem bản build bằng Wrangler. Server tĩnh không chạy phần đăng nhập/quản lý.
 
-npm run check kiểm tra nội dung gốc và 34 trường hợp API/định dạng/cache/session: quyền truy cập, cookie, CSRF, xung đột phiên bản, ảnh, lưu định dạng, tương thích bài cũ, liên kết nội dung và nội dung không an toàn. tests/cms-rls.sql kiểm tra RLS, slug, liên kết ảnh và xuất bản trong transaction rollback, không giữ dữ liệu thử.
+npm run check kiểm tra nội dung gốc và 38 trường hợp API/định dạng/cache/session: quyền truy cập, cookie, CSRF, xung đột phiên bản, ảnh, lưu định dạng, tương thích bài cũ, liên kết nội dung và nội dung không an toàn. tests/cms-rls.sql kiểm tra RLS, slug, liên kết ảnh và xuất bản trong transaction rollback, không giữ dữ liệu thử.
 
 Header kiểm tra phiên qua API private/no-store, dùng chung một yêu cầu với trang quản lý và giữ trạng thái trong bộ nhớ tối đa 60 giây. Sau đăng nhập nút đổi thành Quản lý, dẫn tới nội dung website; sau đăng xuất trở về Đăng nhập. Login/logout phát tín hiệu sang tab khác; quay lại tab hoặc khôi phục từ lịch sử kiểm tra lại phiên. Không lưu token hoặc hồ sơ trong localStorage. Giáo viên đang đăng nhập có lối sửa trực tiếp tại các phần trang chủ; `?muc=stages`, `?muc=images`, `?muc=activities` mở đúng nhóm biên tập.
+
+Nhãn header được render sẵn từ phía máy chủ bằng dấu hiệu có cookie phiên, không chờ JavaScript rồi đổi từ “Tài khoản”. Đây chỉ là gợi ý hiển thị; API vẫn xác minh phiên/quyền bằng Supabase. Store tách trạng thái hiển thị khỏi cờ kiểm tra nền: refresh, mất mạng hoặc chuyển tab giữ nguyên nhãn gần nhất; chỉ kết quả phiên mới được đổi trạng thái. Generation chặn phản hồi cũ ghi đè login/logout mới. Lỗi 403 của một thao tác không tự coi là đăng xuất.
+
+Mẫu trang chủ nằm ở `app/home.html`, được phục vụ bởi `app/route.ts`; không đặt `index.html` trong `public/` vì asset tĩnh sẽ bỏ qua bước render nhãn đầu tiên. Trang chủ có phiên dùng private/no-store và Vary Cookie; các API nội dung công khai vẫn giữ cache riêng.
 
 Bản nháp nội dung cho phép tạm để trống tiêu đề/liên kết, nhưng vẫn kiểm tra định dạng và tham chiếu. Xuất bản kiểm tra đầy đủ các trường bắt buộc. Không xóa ảnh/chặng/câu chuyện/nguồn còn đang được tham chiếu; giao diện chỉ rõ nơi cần đổi liên kết trước.
 
@@ -65,7 +69,7 @@ Supabase Auth xử lý mật khẩu; website giữ token trong cookie HttpOnly, 
 
 ## Triển khai
 
-Giữ nguyên project ID và đối tượng công khai trong .openai/hosting.json. dist/ là kết quả build; nguồn trang hành trình chuyển sang public/. Không chỉnh dist/.
+Giữ nguyên project ID và đối tượng công khai trong .openai/hosting.json. dist/ là kết quả build; mẫu HTML trang hành trình ở app/home.html, CSS/JS/ảnh ở public/. Không chỉnh dist/.
 
 Theo workflow Sites: check/typecheck/build, source helper commit/push/đóng gói, lưu phiên bản rồi deploy. Binding D1/R2 để null vì dùng Supabase. Hosting manifest không chứa thông tin đăng nhập.
 

@@ -4,7 +4,7 @@ export function notifyPublicChange(){try{localStorage.setItem('cms:invalidate',S
 export async function cmsApi(path:string,options:RequestInit={}):Promise<any>{
  if(path==='session'){const value=await getSession();if(value)return value;location.assign('/dang-nhap');throw new Error('Vui lòng đăng nhập lại.');}
  const r=await fetch('/api/cms/'+path,{...options,cache:'no-store',headers:{'X-Requested-With':'cms',...(options.body&&typeof options.body==='string'?{'Content-Type':'application/json'}:{}),...options.headers}});
- const v:any=await r.json();if(r.status===401){announceAuthChange(null);location.assign('/dang-nhap');throw new Error('Vui lòng đăng nhập lại.');}if(r.status===403)announceAuthChange(null);if(!r.ok)throw new Error(v.error||'Chưa hoàn thành được thao tác.');if(path==='logout')announceAuthChange(null);return v;
+ const v:any=await r.json();if(r.status===401){announceAuthChange(null);location.assign('/dang-nhap');throw new Error('Vui lòng đăng nhập lại.');}if(!r.ok)throw new Error(v.error||'Chưa hoàn thành được thao tác.');if(path==='logout')announceAuthChange(null);return v;
 }
 export async function prepareImage(file:File):Promise<Blob>{
  if(!['image/jpeg','image/png','image/webp'].includes(file.type))throw new Error('Chọn ảnh JPG, PNG hoặc WebP.');
