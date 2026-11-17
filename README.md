@@ -1,57 +1,57 @@
 # Sáng mãi tên Người
 
-Website giáo dục dành cho học sinh tiểu học. Đơn vị: **Chi bộ 2 – Đảng bộ Trường Tiểu học Gia Lâm**.
+Website hành trình của Chủ tịch Hồ Chí Minh và bài viết của Trường Tiểu học Gia Lâm.
 
-## Chạy trên máy
+- Trang hành trình: /, nội dung và tài sản gốc trong public/.
+- Bài viết công khai: /bai-viet, /bai-viet/[slug].
+- Đăng nhập email/mật khẩu: /dang-nhap, dùng Supabase Auth, không dùng ChatGPT để đăng nhập.
+- Quản lý: /quan-ly. Giáo viên sửa và đăng bài của mình; admin quản lý mọi bài và quyền các hồ sơ đã được cấp.
+- Lưu nháp, đăng/gỡ bài, xem trước; ảnh JPG/PNG/WebP tối đa 5 MB; kiểm tra phiên bản khi lưu để tránh ghi đè.
 
-Cần Node.js 20 trở lên. Website không có thư viện cần cài đặt.
+## Chạy và kiểm tra
+
+Node >=22.13.0. Dùng starter Sites/Vinext với Worker phía máy chủ, giữ nguyên HTML/CSS/JS trang hành trình.
 
 ```powershell
-cd G:\BacHo\sang-mai-ten-nguoi
+npm ci
 npm run dev
-```
-
-Mở <http://127.0.0.1:4173>. Dừng server bằng Ctrl+C. Cần chạy qua HTTP vì nội dung được đọc từ JSON; không mở `index.html` trực tiếp bằng giao thức `file:`.
-
-```powershell
 npm run check
+npm run typecheck
+npm run build
 ```
 
-Lệnh kiểm tra đối chiếu 7 giai đoạn, liên kết dữ liệu, ảnh, nguồn và cú pháp JavaScript.
+Preview: http://127.0.0.1:5173. npm start xem bản build bằng Wrangler. Server tĩnh không chạy phần đăng nhập/quản lý.
 
-## Cập nhật nội dung
+npm run check kiểm tra nội dung gốc và 12 trường hợp API: quyền truy cập, cookie, CSRF, xung đột phiên bản, ảnh. tests/cms-rls.sql kiểm tra RLS trong transaction rollback, không giữ dữ liệu thử.
 
-Sửa `dist/data/content.json`, giữ nguyên cấu trúc JSON và mã định danh đang được tham chiếu.
+## Supabase
 
-- `site`: tên website, dòng phụ, đơn vị, tên trường, lời giới thiệu và ảnh đầu trang/hoạt động.
-- `stages`: 7 giai đoạn, mốc sự kiện, bài học, giải thích từ khó; thứ tự trong danh sách là thứ tự hiển thị.
-- `images`: đường dẫn ảnh, mô tả cho trình đọc màn hình, chú thích, nguồn và giấy phép.
-- `stories`: các đoạn kể chuyện, câu hỏi liên hệ, mã giai đoạn và nguồn.
-- `videos`: trang nguồn, đường dẫn MP4 được công bố trên trang nguồn, ảnh xem trước và gợi ý xem.
-- `activities`: việc làm và gợi ý hành động cho học sinh.
-- `sources`: các tài liệu đối chiếu.
+Đặt NEXT_PUBLIC_SUPABASE_URL và NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY trong .dev.vars (không commit) khi chạy local, và trong biến môi trường Sites khi triển khai. Xem .env.example.
 
-Thêm ảnh vào `dist/assets/`, sau đó cập nhật đường dẫn tương ứng. Khi thay album minh họa bằng ảnh của trường, đồng thời sửa chú thích và mô tả trong `dist/index.html`. Chỉ dùng ảnh phù hợp để công bố và thông tin hoạt động đã kiểm chứng. Không gắn ảnh trường khác thành hoạt động của trường mình.
+Không đặt mật khẩu database hoặc service-role key trong source. Runtime dùng publishable key cùng JWT của người đăng nhập. Mật khẩu PostgreSQL chỉ dùng để quản trị schema ngoài runtime.
 
-Nội dung không cần tài khoản quản trị, không lưu thông tin học sinh. Mỗi lần sửa cần kiểm tra lại và xuất bản lại bản tĩnh.
+Áp dụng supabase/migrations/202611170001_cms.sql một lần bằng SQL Editor hoặc PostgreSQL client có xác minh chứng chỉ. Có hai bảng cms_profiles, cms_posts và bucket riêng tư cms-media. Thay đổi schema về sau bằng migration mới.
 
-## Tư liệu và hình minh họa
+Tạo tài khoản trong Supabase → Authentication → Users → Add user. Dùng email/mật khẩu do nhà trường cấp, xác nhận email theo quy trình của trường. Website không có tự đăng ký công khai.
 
-Nguồn lịch sử chính: *Hồ Chí Minh – Tiểu sử*, Bảo tàng Hồ Chí Minh, NXB Chính trị Quốc gia, 2008, bản điện tử trên hệ thống Tư liệu – Văn kiện Đảng. Nội dung được kể lại bằng lời ngắn gọn; không phải trích nguyên văn.
+Sau khi user tồn tại, cấp hồ sơ qua SQL Editor (thay đúng email, tên và quyền):
 
-Ảnh thật được lưu cục bộ. Thông tin nguồn, tác giả và giấy phép được gom trong mục Nguồn tham khảo cuối trang; hộp câu chuyện chỉ hiển thị ảnh, chú thích ngắn, nội dung và câu hỏi. Ảnh Pác Bó chụp năm 2016. Ảnh chân dung có tên tệp nguồn ghi 1946 nhưng hồ sơ mô tả khoảng năm 1947; website ghi theo phần mô tả. Các ảnh CC BY-SA giữ giấy phép tương ứng.
+```sql
+insert into public.cms_profiles(id, display_name, role)
+select id, 'Tên giáo viên', 'teacher'
+from auth.users where lower(email) = lower('email-da-duoc-cap@truong.edu.vn')
+on conflict(id) do update set display_name=excluded.display_name,
+  role=excluded.role, active=true;
+```
 
-Phim được phát từ địa chỉ do hochiminh.vn công bố, không sao chép phim vào dự án. Video chỉ tải khi người xem yêu cầu, có liên kết mở trang nguồn khi không phát được. Website sử dụng font Google Fonts; nếu không kết nối được sẽ dùng font dự phòng trên máy.
+Với admin đầu tiên, dùng role admin. Admin có thể đổi quyền/khóa quyền đăng của hồ sơ khác trên website, không tự đổi quyền/khóa chính mình. Cấp tài khoản mới trong Supabase Auth trước, rồi thêm hồ sơ. User đăng ký trực tiếp qua Supabase cũng không có quyền viết nếu thiếu hồ sơ được cấp.
 
-Năm tranh minh họa AI nằm trong `dist/assets/`: `hero.webp`, `harbor.webp`, `village.webp`, `learning.webp`, `activities.webp`. Đây là minh họa, không phải chứng cứ lịch sử hoặc ảnh hoạt động của trường. Xem `DESIGN.md` để biết hướng tạo tranh và tham chiếu bố cục.
+Supabase Auth xử lý mật khẩu; website giữ token trong cookie HttpOnly, Secure trên HTTPS, SameSite=Lax. API xác minh user và quyền mỗi lần; RLS kiểm tra tiếp tại database. Ảnh bản nháp không có URL bucket công khai.
 
-Logo chính thức do người dùng cung cấp nằm tại `dist/assets/gia-lam-logo.png`, dùng ở đầu trang, cuối trang và favicon. Ảnh được giữ nguyên màu sắc và nội dung. `lotus-gold.png` là hoa sen trang trí ở các điểm chia phần. Phần giới thiệu hoạt động mang tên Trường Tiểu học Gia Lâm, không liên kết sang trường khác.
+## Triển khai
 
-## Cấu trúc và triển khai
+Giữ nguyên project ID và đối tượng công khai trong .openai/hosting.json. dist/ là kết quả build; nguồn trang hành trình chuyển sang public/. Không chỉnh dist/.
 
-- `dist/`: toàn bộ website tĩnh để đưa lên hosting.
-- `scripts/serve.mjs`: máy chủ xem thử, chỉ nghe trên máy cục bộ.
-- `scripts/check.mjs`: kiểm tra nội dung và tệp trước khi xuất bản.
-- `.openai/hosting.json`: mã dự án Sites và thư mục xuất bản.
+Theo workflow Sites: check/typecheck/build, source helper commit/push/đóng gói, lưu phiên bản rồi deploy. Binding D1/R2 để null vì dùng Supabase. Hosting manifest không chứa thông tin đăng nhập.
 
-Không có bước build. Upload toàn bộ nội dung `dist/` cho hosting tĩnh, hoặc sử dụng quy trình Sites đã liên kết. Giữ nguyên `project_id` khi xuất bản phiên bản tiếp theo. Website hiện mở công khai theo yêu cầu của người dùng tại https://sang-mai-ten-nguoi-gia-lam.bblvn-2650.chatgpt.site/.
+Repo: https://github.com/Qhuy204/TheoDauChanNguoi.git. GitHub lưu mã nguồn; tên miền hiện tại được xuất bản qua Sites.

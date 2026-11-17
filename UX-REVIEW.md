@@ -54,3 +54,10 @@ Website chưa có ảnh hoạt động thực tế của Trường Tiểu học 
 - Bỏ thanh nhãn loại tư liệu và tiêu đề đỏ lớn phía trên ảnh. Ảnh nằm trước, tên và chú thích căn trái ở dưới; khung vuông nhẹ, không làm mờ hậu cảnh, không bo góc ảnh và không cắt nội dung ảnh.
 - Dùng nút “Đóng” có chữ và biểu tượng, luôn nằm ở đầu khung khi cuộn. Hộp chuyện có chiều rộng đọc tối đa 640px; câu hỏi cuối chuyện dùng đường phân cách, bỏ ô nền màu. Khung phim dùng cùng cách trình bày.
 - Đã kiểm tra ảnh, chuyện và phim; ảnh ở 360px và 1366px không tràn ngang hoặc bị cắt. Đã thử cuộn chuyện trên điện thoại, giữ nút đóng trong màn hình, vòng Tab trong dialog, Escape, trả focus về nút mở và gỡ trình phát khi đóng. `npm run check` đạt.
+
+## Đăng nhập và bài viết
+
+- Giữ trang hành trình gốc trong `public/`; thêm trang bài viết, đăng nhập Supabase Auth bằng email/mật khẩu và khu vực quản lý. Giao diện dùng lại màu, font và logo của trường.
+- Bài mặc định là bản nháp, có xem trước, đăng/gỡ công khai và ảnh đại diện. Giáo viên quản lý bài của mình; admin quản lý mọi bài và quyền các hồ sơ khác. Cảnh báo khi rời nội dung chưa lưu và kiểm tra phiên bản khi lưu.
+- Đã kiểm tra 12 trường hợp API, typecheck và build. Kiểm tra RLS trực tiếp trên Supabase bằng transaction rollback đã qua: khách không đọc bản nháp, giáo viên không đọc nháp/sửa bài của người khác hoặc tự nâng quyền, có thể đăng bài của mình.
+- Kiểm tra trình duyệt: trang đăng nhập, trang bài viết trống, chuyển khách chưa đăng nhập về trang đăng nhập, thông báo sai mật khẩu và màn hình 360px không tràn ngang. Chưa kiểm tra toàn bộ thao tác qua trình duyệt bằng tài khoản thật trước khi admin đầu tiên được chỉ định và cấp hồ sơ.
