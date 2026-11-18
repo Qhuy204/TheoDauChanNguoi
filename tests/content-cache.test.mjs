@@ -7,6 +7,17 @@ test('broken cross-references and unsafe image/video URLs cannot be published',(
 test('dynamic stages and associated media are supported',()=>{const d=structuredClone(seed);d.stages.push({...structuredClone(d.stages[0]),id:'chang-moi',storyId:''});assert.equal(validateSiteContent(d).stages.length,8);d.videos=[];assert.equal(validateSiteContent(d).videos.length,0);});
 test('published content tracks uploaded images',()=>{const d=structuredClone(seed),id='11111111-1111-4111-8111-111111111111';d.site.heroImage='/api/cms/assets/'+id;d.images.village.src='/api/cms/assets/'+id;assert.deepEqual(siteAssetIds(validateSiteContent(d)),[id]);});
 
+test('archive links start from the supplied reference and staff edits or an empty list are preserved',()=>{
+ const d=validateSiteContent(seed);assert.deepEqual(d.resourceLinks.map(link=>new URL(link.url).hostname),['hochiminh.vn','baotanghochiminh.vn','tulieuvankien.dangcongsan.vn']);
+ d.resourceLinks[0].title='Tư liệu của nhà trường';assert.equal(validateSiteContent(d).resourceLinks[0].title,'Tư liệu của nhà trường');
+ d.resourceLinks=[];assert.deepEqual(validateSiteContent(d).resourceLinks,[]);assert.equal(seed.resourceLinks,undefined);
+});
+test('archive-link publication rejects unsafe addresses, duplicate IDs and incomplete entries',()=>{
+ const d=validateSiteContent(seed);for(const url of ['javascript:alert(1)','data:text/html,test','//evil.test','']){const changed=structuredClone(d);changed.resourceLinks[0].url=url;assert.throws(()=>validateSiteContent(changed));}
+ const duplicate=structuredClone(d);duplicate.resourceLinks.push({...duplicate.resourceLinks[0]});assert.throws(()=>validateSiteContent(duplicate));
+ const draft=structuredClone(d);draft.resourceLinks.push({id:'trang-moi',title:'Trang mới',description:'',url:''});assert.equal(validateSiteContent(draft,{draft:true}).resourceLinks.length,4);
+});
+
 test('new media can be saved as unfinished drafts while publication still requires valid content',()=>{
  const d=structuredClone(seed);d.videos.push({...d.videos[0],id:'phim-moi',title:'',url:'',src:''});d.sources.nguonMoi={name:'Nguồn mới',url:''};
  assert.equal(validateSiteContent(d,{draft:true}).videos.length,seed.videos.length+1);assert.throws(()=>validateSiteContent(d));

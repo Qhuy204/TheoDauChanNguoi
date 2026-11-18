@@ -101,3 +101,9 @@ Website chưa có ảnh hoạt động thực tế của Trường Tiểu học 
 - Đổi nút Quản lý từ liên kết vào trình biên tập thành menu thả xuống có tám chức năng. Trang chủ và các trang khác dùng cùng danh sách và cách đóng menu. Chọn mục nội dung mở đúng `?muc=...`; liên kết sửa tại từng khu vực vẫn mở thẳng phần tương ứng.
 - Đã bấm mở menu trên trang bài viết mà URL không đổi, chọn Hành trình mở đúng ô Tên chặng, thử Escape và màn hình 360 px (menu nằm trong viewport, không tràn ngang). Giữ nhãn đăng nhập ổn định trong lúc kiểm tra phiên nền.
 - Bổ sung method POST và chờ form sẵn sàng trước khi cho bấm đăng nhập, tránh submit GET mặc định nếu người dùng bấm trước khi JavaScript khởi tạo xong.
+
+## Liên kết sang các trang tư liệu
+
+- Đối chiếu mục thư viện trong bản tham khảo do người dùng gửi; bổ sung ba liên kết Cổng thông tin Hồ Chí Minh, Bảo tàng Hồ Chí Minh và Tư liệu – Văn kiện Đảng vào khu vực Tư liệu. Liên kết có tên, lời giới thiệu ngắn, dấu mở trang ngoài và mở ở thẻ mới.
+- Thêm nhóm Liên kết tư liệu trong CMS/menu Quản lý; hỗ trợ tên, mô tả, URL, thêm/xóa/sắp xếp, lưu nháp và xuất bản. Giữ riêng với phần Nguồn tham khảo của các chặng để không làm thay đổi các tham chiếu hiện có. Không ghi đè dữ liệu người dùng hoặc đổi schema.
+- Đã kiểm tra ba URL tại trang nguồn, kiểm tra target/rel trong DOM, ô sửa và nút thêm của CMS; màn hình 360 px không tràn ngang. Hai kiểm tra mới xác nhận lưu sửa/danh sách rỗng và chặn URL không an toàn, ID trùng, liên kết thiếu khi xuất bản. Tổng 40 kiểm tra và typecheck đạt.

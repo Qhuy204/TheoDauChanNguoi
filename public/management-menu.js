@@ -5,6 +5,7 @@ export const managementLinks=[
  {label:'Kho ảnh',href:'/noi-dung?muc=images'},
  {label:'Câu chuyện',href:'/noi-dung?muc=stories'},
  {label:'Thước phim',href:'/noi-dung?muc=videos'},
+ {label:'Liên kết tư liệu',href:'/noi-dung?muc=resourceLinks'},
  {label:'Làm theo Bác',href:'/noi-dung?muc=activities'},
  {label:'Nguồn tham khảo',href:'/noi-dung?muc=sources'},
 ];

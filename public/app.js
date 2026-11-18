@@ -1,6 +1,7 @@
 import { enhanceSelect, setSelectValue, isSelectOpen } from './custom-select.js';
 import {publicJSON} from './client-cache.js';
 import {startPublicHeader} from './header.js';
+import {withResourceLinks} from './resource-links.js';
 startPublicHeader();
 
 const $ = (selector, root = document) => root.querySelector(selector);
@@ -30,6 +31,9 @@ function imageMarkup(image, extra = '') {
 }
 
 function renderSite() {
+  const resources=withResourceLinks(data).resourceLinks;
+  $('#resource-links-section').hidden=resources.length===0;
+  $('#resource-links').innerHTML=resources.map(link=>`<a class="resource-link" href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(link.title)} (mở trong thẻ mới)"><span class="resource-link-title">${escape(link.title)}<span aria-hidden="true">↗</span></span>${link.description?`<span class="resource-link-description">${escape(link.description)}</span>`:''}</a>`).join('');
   $$('[data-site-title]').forEach(el => { el.textContent = data.site.title; });
   $$('[data-site-subtitle]').forEach(el => { el.textContent = data.site.subtitle; });
   $$('[data-site-unit]').forEach(el => { el.textContent = data.site.unit; });

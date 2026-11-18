@@ -47,7 +47,7 @@ for (const name of ['styles.css', 'app.js', 'assets/gia-lam-logo.png', 'assets/l
 for (const anchor of ['gioi-thieu', 'hanh-trinh', 'tu-lieu', 'lam-theo-bac', 'media-dialog', 'load-error']) assert(html.includes(`id="${anchor}"`));
 execFileSync(process.execPath, ['--check', path.join(dist, 'app.js')]);
 execFileSync(process.execPath, ['--check', path.join(dist, 'custom-select.js')]);
-for(const name of ['auth-session.js','header.js','client-cache.js','management-menu.js'])execFileSync(process.execPath,['--check',path.join(dist,name)]);
+for(const name of ['auth-session.js','header.js','client-cache.js','management-menu.js','resource-links.js'])execFileSync(process.execPath,['--check',path.join(dist,name)]);
 execFileSync(process.execPath, ['--check', path.join(root, 'scripts/serve.mjs')]);
 assert(!/TODO|lorem ipsum|codex-preview/i.test(html));
 console.log(`PASS: 7 stages, 7 stories, ${data.videos.length} videos, ${assets.size} image assets, sources and JavaScript syntax.`);
